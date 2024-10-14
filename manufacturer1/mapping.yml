@@ -18,7 +18,7 @@ sources:
     access: ./products.csv
     referenceFormulation: csv
   acl:
-    access: ./acl.csv
+    access: ./read_access.csv
     referenceFormulation: csv
   empty:
     access: ./empty.csv
