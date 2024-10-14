@@ -73,9 +73,9 @@ java -jar ../../rmlmapper.jar -m mapping.rml.ttl
 
 ### Yarrrml-parser
 - [ ] enable the use of functions in combination with a logical target map (dynamic target)
-- [ ] shortcut for solid related dynamic targets?
-- [ ] add uri key to authentication (to reuse inside triples map to generate targets)
-- [ ] merge
+- [ ] shortcut for solid related dynamic targets(?)
+- [ ] add uri key to authentication (to reuse inside triples map to generate targets)(?)
+- [ ] merge to yarrrml-parser development branch
 - [ ] publish on github
 
 ### RMLMapper
