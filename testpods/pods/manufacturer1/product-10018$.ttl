@@ -1,6 +1,3 @@
 
 <http://example.com/manufacturer1/10018> <http://example.com/voc/fifthProperty> "5_18";
-  <http://example.com/voc/firstProperty> "1_18";
-  <http://example.com/voc/fourthProperty> "4_18";
-  <http://example.com/voc/secondProperty> "2_18";
-  <http://example.com/voc/thirdProperty> "3_18" .
+  <http://example.com/voc/fourthProperty> "4_18" .

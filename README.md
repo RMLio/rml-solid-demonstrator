@@ -50,6 +50,7 @@ cd ../
 cd ./testpods
 npx @solid/community-server -c @css:config/file.json --seedConfig ./seeded-pod-config.json -f pods/
 ````
+At question: Ok to proceed > y
 
 - go to other terminal and start solid-target-helper
 ````shell
@@ -61,10 +62,10 @@ node index.js
 ````shell
 cd ./manufacturer1
 echo 'Converting YARRRML mapping to RML mapping...'
-../../yarrrml-parser/bin/parser.js -i mapping.yml -m -o mapping.rml.ttl
+../yarrrml-parser/bin/parser.js -i mapping.yml -m -o mapping.rml.ttl
 
 echo 'Using RML mapping to construct knowledge graph...'
-java -jar ../../rmlmapper.jar -m mapping.rml.ttl
+java -jar ../rmlmapper.jar -m mapping.rml.ttl
 ````
 
 - Check the generated resources in [./testpods/pods/manufacturer1](./testpods/pods/manufacturer1)

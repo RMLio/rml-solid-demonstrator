@@ -17,6 +17,10 @@ sources:
   products:
     access: ./products.csv
     referenceFormulation: csv
+  products2:
+    access: ./products2.json
+    referenceFormulation: jsonpath
+    iterator: '$.products[*]'
   acl:
     access: ./read_access.csv
     referenceFormulation: csv
@@ -72,24 +76,31 @@ mappings:
         o:
           value: $(Property3)
           targets:
-          - products-a
+          - products-b
           - LT:product-$(ProductID)-a
           - LT:product-$(ProductID)-3
+  products2:
+    sources: products2
+    s:
+      value: ex:manufacturer1/$(product_id)
+      targets:
+        - products
+        - LT:product-$(product_id)-bis
+    po:
       - p: voc:fourthProperty
         o:
-          value: $(Property4)
+          value: $(property_4)
           targets:
-          - products-b
-          - LT:product-$(ProductID)-b
-          - LT:product-$(ProductID)-4
+            - products-b
+            - LT:product-$(product_id)-b-bis
+            - LT:product-$(product_id)-4
       - p: voc:fifthProperty
         o:
-          value: $(Property5)
+          value: $(property_5)
           targets:
-          - products-b
-          - LT:product-$(ProductID)-b
-          - LT:product-$(ProductID)-5
-
+            - products-b
+            - LT:product-$(product_id)-b-bis
+            - LT:product-$(product_id)-5
 #reusable authentication, TODO add uri to YARRRML
   UserAuthentication:
     sources: products
@@ -180,44 +191,6 @@ mappings:
       - [a, rmli:SolidResourceTarget~iri]
       - [rmli:resource, http://localhost:3000/manufacturer1/product-$(ProductID)-3]
       - [idsa:userAuthentication, ex:auth/manufacturer1~iri]
-  LT-product-4:
-    sources: products
-    s:
-      value: LT:product-$(ProductID)-4
-      targets: ThisMapping
-    po:
-      - [a, rml:LogicalTarget~iri]
-      - [rmlt:serialization, formats:Turtle~iri]
-      - [rmlt:target, T:product-$(ProductID)-4~iri]
-  T-product-4:
-    sources: products
-    s:
-      value: T:product-$(ProductID)-4
-      targets: ThisMapping
-    po:
-      - [a, rmlt:Target~iri]
-      - [a, rmli:SolidResourceTarget~iri]
-      - [rmli:resource, http://localhost:3000/manufacturer1/product-$(ProductID)-4]
-      - [idsa:userAuthentication, ex:auth/manufacturer1~iri]
-  LT-product-5:
-    sources: products
-    s:
-      value: LT:product-$(ProductID)-5
-      targets: ThisMapping
-    po:
-      - [a, rml:LogicalTarget~iri]
-      - [rmlt:serialization, formats:Turtle~iri]
-      - [rmlt:target, T:product-$(ProductID)-5~iri]
-  T-product-5:
-    sources: products
-    s:
-      value: T:product-$(ProductID)-5
-      targets: ThisMapping
-    po:
-      - [a, rmlt:Target~iri]
-      - [a, rmli:SolidResourceTarget~iri]
-      - [rmli:resource, http://localhost:3000/manufacturer1/product-$(ProductID)-5]
-      - [idsa:userAuthentication, ex:auth/manufacturer1~iri]
   LT-product-a:
     sources: products
     s:
@@ -256,6 +229,83 @@ mappings:
       - [a, rmli:SolidResourceTarget~iri]
       - [rmli:resource, http://localhost:3000/manufacturer1/product-$(ProductID)-b]
       - [idsa:userAuthentication, ex:auth/manufacturer1~iri]
+  LT-product-bis:
+    sources: products2
+    s:
+      value: LT:product-$(product_id)-bis
+      targets: ThisMapping
+    po:
+      - [a, rml:LogicalTarget~iri]
+      - [rmlt:serialization, formats:Turtle~iri]
+      - [rmlt:target, T:product-$(product_id)-bis~iri]
+  T-product-bis:
+    sources: products2
+    s:
+      value: T:product-$(product_id)-bis
+      targets: ThisMapping
+    po:
+      - [a, rmlt:Target~iri]
+      - [a, rmli:SolidResourceTarget~iri]
+      - [rmli:resource, http://localhost:3000/manufacturer1/product-$(product_id)]
+      - [idsa:userAuthentication, ex:auth/manufacturer1~iri]
+  LT-product-4:
+    sources: products2
+    s:
+      value: LT:product-$(product_id)-4
+      targets: ThisMapping
+    po:
+      - [a, rml:LogicalTarget~iri]
+      - [rmlt:serialization, formats:Turtle~iri]
+      - [rmlt:target, T:product-$(product_id)-4~iri]
+  T-product-4:
+    sources: products2
+    s:
+      value: T:product-$(product_id)-4
+      targets: ThisMapping
+    po:
+      - [a, rmlt:Target~iri]
+      - [a, rmli:SolidResourceTarget~iri]
+      - [rmli:resource, http://localhost:3000/manufacturer1/product-$(product_id)-4]
+      - [idsa:userAuthentication, ex:auth/manufacturer1~iri]
+  LT-product-5:
+    sources: products2
+    s:
+      value: LT:product-$(product_id)-5
+      targets: ThisMapping
+    po:
+      - [a, rml:LogicalTarget~iri]
+      - [rmlt:serialization, formats:Turtle~iri]
+      - [rmlt:target, T:product-$(product_id)-5~iri]
+  T-product-5:
+    sources: products2
+    s:
+      value: T:product-$(product_id)-5
+      targets: ThisMapping
+    po:
+      - [a, rmlt:Target~iri]
+      - [a, rmli:SolidResourceTarget~iri]
+      - [rmli:resource, http://localhost:3000/manufacturer1/product-$(product_id)-5]
+      - [idsa:userAuthentication, ex:auth/manufacturer1~iri]
+  LT-product-b-bis:
+    sources: products2
+    s:
+      value: LT:product-$(product_id)-b-bis
+      targets: ThisMapping
+    po:
+      - [a, rml:LogicalTarget~iri]
+      - [rmlt:serialization, formats:Turtle~iri]
+      - [rmlt:target, T:product-$(product_id)-b-bis~iri]
+  T-product-b-bis:
+    sources: products2
+    s:
+      value: T:product-$(product_id)-b-bis
+      targets: ThisMapping
+    po:
+      - [a, rmlt:Target~iri]
+      - [a, rmli:SolidResourceTarget~iri]
+      - [rmli:resource, http://localhost:3000/manufacturer1/product-$(product_id)-b]
+      - [idsa:userAuthentication, ex:auth/manufacturer1~iri]
+
 # acl files managed from one csv
   acl:
     sources: acl
