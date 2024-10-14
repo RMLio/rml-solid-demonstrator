@@ -1,0 +1,80 @@
+
+<http://example.com/manufacturer1/10001> <http://example.com/voc/firstProperty> "1_1";
+  <http://example.com/voc/secondProperty> "2_1";
+  <http://example.com/voc/thirdProperty> "3_1" .
+
+<http://example.com/manufacturer1/10002> <http://example.com/voc/firstProperty> "1_2";
+  <http://example.com/voc/secondProperty> "2_2";
+  <http://example.com/voc/thirdProperty> "3_2" .
+
+<http://example.com/manufacturer1/10003> <http://example.com/voc/firstProperty> "1_3";
+  <http://example.com/voc/secondProperty> "2_3";
+  <http://example.com/voc/thirdProperty> "3_3" .
+
+<http://example.com/manufacturer1/10004> <http://example.com/voc/firstProperty> "1_4";
+  <http://example.com/voc/secondProperty> "2_4";
+  <http://example.com/voc/thirdProperty> "3_4" .
+
+<http://example.com/manufacturer1/10005> <http://example.com/voc/firstProperty> "1_5";
+  <http://example.com/voc/secondProperty> "2_5";
+  <http://example.com/voc/thirdProperty> "3_5" .
+
+<http://example.com/manufacturer1/10006> <http://example.com/voc/firstProperty> "1_6";
+  <http://example.com/voc/secondProperty> "2_6";
+  <http://example.com/voc/thirdProperty> "3_6" .
+
+<http://example.com/manufacturer1/10007> <http://example.com/voc/firstProperty> "1_7";
+  <http://example.com/voc/secondProperty> "2_7";
+  <http://example.com/voc/thirdProperty> "3_7" .
+
+<http://example.com/manufacturer1/10008> <http://example.com/voc/firstProperty> "1_8";
+  <http://example.com/voc/secondProperty> "2_8";
+  <http://example.com/voc/thirdProperty> "3_8" .
+
+<http://example.com/manufacturer1/10009> <http://example.com/voc/firstProperty> "1_9";
+  <http://example.com/voc/secondProperty> "2_9";
+  <http://example.com/voc/thirdProperty> "3_9" .
+
+<http://example.com/manufacturer1/10010> <http://example.com/voc/firstProperty> "1_10";
+  <http://example.com/voc/secondProperty> "2_10";
+  <http://example.com/voc/thirdProperty> "3_10" .
+
+<http://example.com/manufacturer1/10011> <http://example.com/voc/firstProperty> "1_11";
+  <http://example.com/voc/secondProperty> "2_11";
+  <http://example.com/voc/thirdProperty> "3_11" .
+
+<http://example.com/manufacturer1/10012> <http://example.com/voc/firstProperty> "1_12";
+  <http://example.com/voc/secondProperty> "2_12";
+  <http://example.com/voc/thirdProperty> "3_12" .
+
+<http://example.com/manufacturer1/10013> <http://example.com/voc/firstProperty> "1_13";
+  <http://example.com/voc/secondProperty> "2_13";
+  <http://example.com/voc/thirdProperty> "3_13" .
+
+<http://example.com/manufacturer1/10014> <http://example.com/voc/firstProperty> "1_14";
+  <http://example.com/voc/secondProperty> "2_14";
+  <http://example.com/voc/thirdProperty> "3_14" .
+
+<http://example.com/manufacturer1/10015> <http://example.com/voc/firstProperty> "1_15";
+  <http://example.com/voc/secondProperty> "2_15";
+  <http://example.com/voc/thirdProperty> "3_15" .
+
+<http://example.com/manufacturer1/10016> <http://example.com/voc/firstProperty> "1_16";
+  <http://example.com/voc/secondProperty> "2_16";
+  <http://example.com/voc/thirdProperty> "3_16" .
+
+<http://example.com/manufacturer1/10017> <http://example.com/voc/firstProperty> "1_17";
+  <http://example.com/voc/secondProperty> "2_17";
+  <http://example.com/voc/thirdProperty> "3_17" .
+
+<http://example.com/manufacturer1/10018> <http://example.com/voc/firstProperty> "1_18";
+  <http://example.com/voc/secondProperty> "2_18";
+  <http://example.com/voc/thirdProperty> "3_18" .
+
+<http://example.com/manufacturer1/10019> <http://example.com/voc/firstProperty> "1_19";
+  <http://example.com/voc/secondProperty> "2_19";
+  <http://example.com/voc/thirdProperty> "3_19" .
+
+<http://example.com/manufacturer1/10020> <http://example.com/voc/firstProperty> "1_20";
+  <http://example.com/voc/secondProperty> "2_20";
+  <http://example.com/voc/thirdProperty> "3_20" .

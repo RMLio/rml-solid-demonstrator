@@ -1,0 +1,303 @@
+prefixes:
+  idlab-fn: http://example.com/idlab/function/
+  grel: http://users.ugent.be/~bjdmeest/function/grel.ttl#
+  ex: http://example.com/
+  voc: http://example.com/voc/
+  rml: http://semweb.mmlab.be/ns/rml#
+  rmlt: http://semweb.mmlab.be/ns/rml-target#
+  acl: http://www.w3.org/ns/auth/acl#
+  solid: http://www.w3.org/ns/solid/terms#
+  idsa: https://w3id.org/idsa/core/
+  formats: http://www.w3.org/ns/formats/
+  rmli: https://w3id.org/imec/rml/
+  LT: http://knows.base/logical_target/
+  T: http://knows.base/target/
+base: http://knows.com/base/
+sources:
+  products:
+    access: ./products.csv
+    referenceFormulation: csv
+  acl:
+    access: ./acl.csv
+    referenceFormulation: csv
+  empty:
+    access: ./empty.csv
+    referenceFormulation: csv
+targets:
+  products:
+    type: solid_resource
+    access: http://localhost:3000/manufacturer1/products
+    serialization: turtle
+    authentication: auth
+  products-a:
+    type: solid_resource
+    access: http://localhost:3000/manufacturer1/products-a
+    serialization: turtle
+    authentication: auth
+  products-b:
+    type: solid_resource
+    access: http://localhost:3000/manufacturer1/products-b
+    serialization: turtle
+    authentication: auth
+authentications:
+  auth:
+    username: hello@manufacturer1.com
+    password: abc123
+    oidc_issuer: http://localhost:3000/
+    web_id: http://localhost:3000/manufacturer1/profile/card#me
+mappings:
+  products:
+    sources: products
+    s:
+      value: ex:manufacturer1/$(ProductID)
+      targets:
+      - products
+      - LT:product-$(ProductID)
+    po:
+      - p: voc:firstProperty
+        o:
+          value: $(Property1)
+          targets:
+          - products-a
+          - LT:product-$(ProductID)-a
+          - LT:product-$(ProductID)-1
+      - p: voc:secondProperty
+        o:
+          value: $(Property2)
+          targets:
+          - products-a
+          - LT:product-$(ProductID)-a
+          - LT:product-$(ProductID)-2
+      - p: voc:thirdProperty
+        o:
+          value: $(Property3)
+          targets:
+          - products-a
+          - LT:product-$(ProductID)-a
+          - LT:product-$(ProductID)-3
+      - p: voc:fourthProperty
+        o:
+          value: $(Property4)
+          targets:
+          - products-b
+          - LT:product-$(ProductID)-b
+          - LT:product-$(ProductID)-4
+      - p: voc:fifthProperty
+        o:
+          value: $(Property5)
+          targets:
+          - products-b
+          - LT:product-$(ProductID)-b
+          - LT:product-$(ProductID)-5
+
+#reusable authentication, TODO add uri to YARRRML
+  UserAuthentication:
+    sources: products
+    s:
+      value: ex:auth/manufacturer1
+      targets: ThisMapping
+    po:
+      - [a, idsa:UserAuthentication~iri]
+      - [idsa:authUsername, hello@manufacturer1.com]
+      - [idsa:authPassword, abc123]
+      - [solid:oidcIssuer, http://localhost:3000/~iri]
+      - [rmli:webId, http://localhost:3000/manufacturer1/profile/card#me~iri]
+
+#triplesmaps for dynamic targets, TODO shortcut in YARRRML
+  LT-product:
+    sources: products
+    s:
+      value: LT:product-$(ProductID)
+      targets: ThisMapping
+    po:
+      - [a, rml:LogicalTarget~iri]
+      - [rmlt:serialization, formats:Turtle~iri]
+      - [rmlt:target, T:product-$(ProductID)~iri]
+  T-product:
+    sources: products
+    s:
+      value: T:product-$(ProductID)
+      targets: ThisMapping
+    po:
+      - [a, rmlt:Target~iri]
+      - [a, rmli:SolidResourceTarget~iri]
+      - [rmli:resource, http://localhost:3000/manufacturer1/product-$(ProductID)]
+      - [idsa:userAuthentication, ex:auth/manufacturer1~iri]
+  LT-product-1:
+    sources: products
+    s:
+      value: LT:product-$(ProductID)-1
+      targets: ThisMapping
+    po:
+      - [a, rml:LogicalTarget~iri]
+      - [rmlt:serialization, formats:Turtle~iri]
+      - [rmlt:target, T:product-$(ProductID)-1~iri]
+  T-product-1:
+    sources: products
+    s:
+      value: T:product-$(ProductID)-1
+      targets: ThisMapping
+    po:
+      - [a, rmlt:Target~iri]
+      - [a, rmli:SolidResourceTarget~iri]
+      - [rmli:resource, http://localhost:3000/manufacturer1/product-$(ProductID)-1]
+      - [idsa:userAuthentication, ex:auth/manufacturer1~iri]
+  LT-product-2:
+    sources: products
+    s:
+      value: LT:product-$(ProductID)-2
+      targets: ThisMapping
+    po:
+      - [a, rml:LogicalTarget~iri]
+      - [rmlt:serialization, formats:Turtle~iri]
+      - [rmlt:target, T:product-$(ProductID)-2~iri]
+  T-product-2:
+    sources: products
+    s:
+      value: T:product-$(ProductID)-2
+      targets: ThisMapping
+    po:
+      - [a, rmlt:Target~iri]
+      - [a, rmli:SolidResourceTarget~iri]
+      - [rmli:resource, http://localhost:3000/manufacturer1/product-$(ProductID)-2]
+      - [idsa:userAuthentication, ex:auth/manufacturer1~iri]
+  LT-product-3:
+    sources: products
+    s:
+      value: LT:product-$(ProductID)-3
+      targets: ThisMapping
+    po:
+      - [a, rml:LogicalTarget~iri]
+      - [rmlt:serialization, formats:Turtle~iri]
+      - [rmlt:target, T:product-$(ProductID)-3~iri]
+  T-product-3:
+    sources: products
+    s:
+      value: T:product-$(ProductID)-3
+      targets: ThisMapping
+    po:
+      - [a, rmlt:Target~iri]
+      - [a, rmli:SolidResourceTarget~iri]
+      - [rmli:resource, http://localhost:3000/manufacturer1/product-$(ProductID)-3]
+      - [idsa:userAuthentication, ex:auth/manufacturer1~iri]
+  LT-product-4:
+    sources: products
+    s:
+      value: LT:product-$(ProductID)-4
+      targets: ThisMapping
+    po:
+      - [a, rml:LogicalTarget~iri]
+      - [rmlt:serialization, formats:Turtle~iri]
+      - [rmlt:target, T:product-$(ProductID)-4~iri]
+  T-product-4:
+    sources: products
+    s:
+      value: T:product-$(ProductID)-4
+      targets: ThisMapping
+    po:
+      - [a, rmlt:Target~iri]
+      - [a, rmli:SolidResourceTarget~iri]
+      - [rmli:resource, http://localhost:3000/manufacturer1/product-$(ProductID)-4]
+      - [idsa:userAuthentication, ex:auth/manufacturer1~iri]
+  LT-product-5:
+    sources: products
+    s:
+      value: LT:product-$(ProductID)-5
+      targets: ThisMapping
+    po:
+      - [a, rml:LogicalTarget~iri]
+      - [rmlt:serialization, formats:Turtle~iri]
+      - [rmlt:target, T:product-$(ProductID)-5~iri]
+  T-product-5:
+    sources: products
+    s:
+      value: T:product-$(ProductID)-5
+      targets: ThisMapping
+    po:
+      - [a, rmlt:Target~iri]
+      - [a, rmli:SolidResourceTarget~iri]
+      - [rmli:resource, http://localhost:3000/manufacturer1/product-$(ProductID)-5]
+      - [idsa:userAuthentication, ex:auth/manufacturer1~iri]
+  LT-product-a:
+    sources: products
+    s:
+      value: LT:product-$(ProductID)-a
+      targets: ThisMapping
+    po:
+      - [a, rml:LogicalTarget~iri]
+      - [rmlt:serialization, formats:Turtle~iri]
+      - [rmlt:target, T:product-$(ProductID)-a~iri]
+  T-product-a:
+    sources: products
+    s:
+      value: T:product-$(ProductID)-a
+      targets: ThisMapping
+    po:
+      - [a, rmlt:Target~iri]
+      - [a, rmli:SolidResourceTarget~iri]
+      - [rmli:resource, http://localhost:3000/manufacturer1/product-$(ProductID)-a]
+      - [idsa:userAuthentication, ex:auth/manufacturer1~iri]
+  LT-product-b:
+    sources: products
+    s:
+      value: LT:product-$(ProductID)-b
+      targets: ThisMapping
+    po:
+      - [a, rml:LogicalTarget~iri]
+      - [rmlt:serialization, formats:Turtle~iri]
+      - [rmlt:target, T:product-$(ProductID)-b~iri]
+  T-product-b:
+    sources: products
+    s:
+      value: T:product-$(ProductID)-b
+      targets: ThisMapping
+    po:
+      - [a, rmlt:Target~iri]
+      - [a, rmli:SolidResourceTarget~iri]
+      - [rmli:resource, http://localhost:3000/manufacturer1/product-$(ProductID)-b]
+      - [idsa:userAuthentication, ex:auth/manufacturer1~iri]
+# acl files managed from one csv
+  acl:
+    sources: acl
+    s:
+      value: ex:selected_user_access
+      targets: LT:$(access_to)-acl
+    po:
+      - [ a, acl:Authorization~iri ]
+      - [ acl:agent, $(agent_webid)~iri ]
+      - [ acl:accessTo, http://localhost:3000/manufacturer1/$(access_to)~iri ]
+      - [ acl:mode, acl:Read~iri ]
+# owner should get rwc access on every acl resource generated
+# this way it cannot be forgotten
+  acl_owner:
+    sources: acl
+    s:
+      value: ex:owner_access
+      targets: LT:$(access_to)-acl
+    po:
+      - [ a, acl:Authorization~iri ]
+      - [ acl:agent, http://localhost:3000/manufacturer1/profile/card#me~iri ]
+      - [ acl:accessTo, http://localhost:3000/manufacturer1/$(access_to)~iri ]
+      - [ acl:mode, acl:Read~iri ]
+      - [ acl:mode, acl:Write~iri ]
+      - [ acl:mode, acl:Control~iri ]
+  LT-acl:
+    sources: acl
+    s:
+      value: LT:$(access_to)-acl
+      targets: ThisMapping
+    po:
+      - [a, rml:LogicalTarget~iri]
+      - [rmlt:serialization, formats:Turtle~iri]
+      - p: rmlt:target
+        o: T:$(access_to)-acl~iri
+  T-acl:
+    sources: acl
+    s:
+      value: T:$(access_to)-acl
+      targets: ThisMapping
+    po:
+      - [a, rmlt:Target~iri]
+      - [a, rmli:SolidAclTarget~iri]
+      - [rmli:forResource, http://localhost:3000/manufacturer1/$(access_to)~iri]
+      - [idsa:userAuthentication, ex:auth/manufacturer1~iri]

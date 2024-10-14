@@ -1,0 +1,11 @@
+
+<http://example.com/owner_access> a <http://www.w3.org/ns/auth/acl#Authorization>;
+  <http://www.w3.org/ns/auth/acl#accessTo> <http://localhost:3000/manufacturer1/product-10018-2>;
+  <http://www.w3.org/ns/auth/acl#agent> <http://localhost:3000/manufacturer1/profile/card#me>;
+  <http://www.w3.org/ns/auth/acl#mode> <http://www.w3.org/ns/auth/acl#Control>, <http://www.w3.org/ns/auth/acl#Read>,
+    <http://www.w3.org/ns/auth/acl#Write> .
+
+<http://example.com/selected_user_access> a <http://www.w3.org/ns/auth/acl#Authorization>;
+  <http://www.w3.org/ns/auth/acl#accessTo> <http://localhost:3000/manufacturer1/product-10018-2>;
+  <http://www.w3.org/ns/auth/acl#agent> <http://localhost:3000/user5/profile/card#me>;
+  <http://www.w3.org/ns/auth/acl#mode> <http://www.w3.org/ns/auth/acl#Read> .

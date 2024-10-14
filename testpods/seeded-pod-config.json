@@ -1,0 +1,53 @@
+[
+  {
+    "email": "hello@manufacturer1.com",
+    "password": "abc123",
+    "pods": [{"name": "manufacturer1"}]
+  },
+  {
+    "email": "hello@user1.com",
+    "password": "abc123",
+    "pods": [{"name": "user1"}]
+  },
+  {
+    "email": "hello@user2.com",
+    "password": "abc123",
+    "pods": [{"name": "user2"}]
+  },
+  {
+  "email": "hello@user3.com",
+  "password": "abc123",
+  "pods": [{"name": "user3"}]
+  },
+  {
+    "email": "hello@user4.com",
+    "password": "abc123",
+    "pods": [{"name": "user4"}]
+  },
+  {
+    "email": "hello@user5.com",
+    "password": "abc123",
+    "pods": [{"name": "user5"}]
+  },
+  {
+    "email": "hello@user6.com",
+    "password": "abc123",
+    "pods": [{"name": "user6"}]
+  },
+  {
+    "email": "hello@user7.com",
+    "password": "abc123",
+    "pods": [{"name": "user7"}]
+  },
+  {
+    "email": "hello@user8.com",
+    "password": "abc123",
+    "pods": [{"name": "user8"}]
+  },
+  {
+    "email": "hello@user9.com",
+    "password": "abc123",
+    "pods": [{"name": "user9"}]
+  }
+
+]

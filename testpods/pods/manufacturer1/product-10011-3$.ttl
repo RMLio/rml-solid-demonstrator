@@ -1,0 +1,2 @@
+
+<http://example.com/manufacturer1/10011> <http://example.com/voc/thirdProperty> "3_11" .
