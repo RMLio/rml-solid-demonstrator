@@ -6,7 +6,7 @@ With this repository we demonstrate the capabilities of RML4SOLID.
 
 We map source data from two manufacturers ([./manufacturer1/](./manufacturer1/) and [./manufacturer2/](./manufacturer2/) and add the resulting data as multiple views over the same data on their Solid pods([./Community_Solid_Server/pods/manufacturer1/](./Community_Solid_Server/pods/manufacturer1/) and [./Community_Solid_Server/pods/manufacturer2/](./Community_Solid_Server/pods/manufacturer2/)). The manufacturers manage the read access to the resources on their Solid pods via a locally stored csv file ([./manufacturer1/read_access.csv](./manufacturer1/read_access.csv) and [./manufacturer2/read_access.csv](./manufacturer2/read_access.csv)). The mapping files of the manufacturers ([./manufacturer1/mapping.yml](./manufacturer1/mapping.yml) and [./manufacturer2/mapping.yml](./manufacturer2/mapping.yml)) also handle the access control files. 
 
-![image](pipeline.jpg “Demo pipeline”)
+![image](pipeline.jpg)
 
 ## MAPPING OF ELABORATED SCENARIO'S TO FUNCTIONAL REQUIREMENTS
 
