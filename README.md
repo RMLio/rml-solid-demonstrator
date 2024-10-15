@@ -93,7 +93,7 @@ cd ../
 ````
 
 
-## EXECUTE OF THE DEMO PIPELINE
+## EXECUTION OF THE DEMO PIPELINE
 
 - start testpods
 
