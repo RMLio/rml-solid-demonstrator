@@ -1,3 +1,0 @@
-
-<http://example.com/manufacturer1/10019> <http://example.com/voc/fifthProperty> "5_19";
-  <http://example.com/voc/fourthProperty> "4_19" .

@@ -1,0 +1,108 @@
+prefixes:
+  idlab-fn: http://example.com/idlab/function/
+  grel: http://users.ugent.be/~bjdmeest/function/grel.ttl#
+  ex: http://example.com/
+  voc: http://example.com/voc/
+  rml: http://semweb.mmlab.be/ns/rml#
+  rmlt: http://semweb.mmlab.be/ns/rml-target#
+  acl: http://www.w3.org/ns/auth/acl#
+  solid: http://www.w3.org/ns/solid/terms#
+  idsa: https://w3id.org/idsa/core/
+  formats: http://www.w3.org/ns/formats/
+  rmli: https://w3id.org/imec/rml/
+  LT: http://knows.base/logical_target/
+  T: http://knows.base/target/
+base: http://knows.com/base/
+sources:
+  articles:
+    access: ./articles.xml
+    referenceFormulation: xpath
+    iterator: /articles/article
+  acl:
+    access: ./read_access.csv
+    referenceFormulation: csv
+  empty:
+    access: ./empty.csv
+    referenceFormulation: csv
+targets:
+  articles:
+    type: solid_resource
+    access: http://localhost:3000/manufacturer2/articles
+    serialization: turtle
+    authentication: auth
+authentications:
+  auth:
+    username: hello@manufacturer2.com
+    password: abc123
+    oidc_issuer: http://localhost:3000/
+    web_id: http://localhost:3000/manufacturer2/profile/card#me
+mappings:
+  articles:
+    sources: articles
+    s:
+      value: ex:manufacturer2/article-$(articlenumber)
+      targets:
+      - articles
+    po:
+      - [ voc:firstProperty, $(propertyone) ]
+      - [ voc:secondProperty, $(propertytwo) ]
+      - [ voc:thirdProperty, $(propertythree) ]
+      - [ voc:fourthProperty, $(propertyfour) ]
+      - [ voc:fifthProperty, $(propertyfive) ]
+# acl files managed from one csv
+  acl:
+    sources: acl
+    s:
+      value: ex:selected_user_access
+      targets: LT:$(access_to)-acl
+    po:
+      - [ a, acl:Authorization~iri ]
+      - [ acl:agent, $(agent_webid)~iri ]
+      - [ acl:accessTo, http://localhost:3000/manufacturer2/$(access_to)~iri ]
+      - [ acl:mode, acl:Read~iri ]
+# owner should get rwc access on every acl resource generated
+# this way it cannot be forgotten
+  acl_owner:
+    sources: acl
+    s:
+      value: ex:owner_access
+      targets: LT:$(access_to)-acl
+    po:
+      - [ a, acl:Authorization~iri ]
+      - [ acl:agent, http://localhost:3000/manufacturer2/profile/card#me~iri ]
+      - [ acl:accessTo, http://localhost:3000/manufacturer2/$(access_to)~iri ]
+      - [ acl:mode, acl:Read~iri ]
+      - [ acl:mode, acl:Write~iri ]
+      - [ acl:mode, acl:Control~iri ]
+  LT-acl:
+    sources: acl
+    s:
+      value: LT:$(access_to)-acl
+      targets: ThisMapping
+    po:
+      - [a, rml:LogicalTarget~iri]
+      - [rmlt:serialization, formats:Turtle~iri]
+      - p: rmlt:target
+        o: T:$(access_to)-acl~iri
+  T-acl:
+    sources: acl
+    s:
+      value: T:$(access_to)-acl
+      targets: ThisMapping
+    po:
+      - [a, rmlt:Target~iri]
+      - [a, rmli:SolidAclTarget~iri]
+      - [rmli:forResource, http://localhost:3000/manufacturer2/$(access_to)~iri]
+      - [idsa:userAuthentication, ex:auth/manufacturer2~iri]
+  #reusable authentication, TODO add uri to YARRRML
+  UserAuthentication:
+    sources: empty
+    s:
+      value: ex:auth/manufacturer2
+      targets: ThisMapping
+    po:
+      - [a, idsa:UserAuthentication~iri]
+      - [idsa:authUsername, hello@manufacturer2.com]
+      - [idsa:authPassword, abc123]
+      - [solid:oidcIssuer, http://localhost:3000/~iri]
+      - [rmli:webId, http://localhost:3000/manufacturer2/profile/card#me~iri]

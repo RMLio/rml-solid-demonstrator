@@ -67,6 +67,13 @@
 :solid_002 a rmli:SolidResourceTarget;
     rmli:resource <http://localhost:3000/manufacturer1/products-b>;
     idsa:userAuthentication :authentication_000.
+:target_003 a rmlt:LogicalTarget;
+    rdfs:label "products-other-ontology";
+    rmlt:serialization formats:Turtle;
+    rmlt:target :solid_003.
+:solid_003 a rmli:SolidResourceTarget;
+    rmli:resource <http://localhost:3000/manufacturer1/products-other-ontology>;
+    idsa:userAuthentication :authentication_000.
 :map_products_000 rml:logicalSource :source_000;
     a rr:TriplesMap;
     rdfs:label "products".
@@ -115,7 +122,7 @@
     rr:termType rr:Literal;
     rml:logicalTarget :target_002;
     rmli:logicalTargetMap :dynamic_target_005.
-:dynamic_target_005 rr:template "http://knows.base/logical_target/product-{ProductID}-a".
+:dynamic_target_005 rr:template "http://knows.base/logical_target/product-{ProductID}-b".
 :om_002 rmli:logicalTargetMap :dynamic_target_006.
 :dynamic_target_006 rr:template "http://knows.base/logical_target/product-{ProductID}-3".
 :map_products2_000 rml:logicalSource :source_001;
@@ -126,7 +133,7 @@
 :s_001 rr:template "http://example.com/manufacturer1/{product_id}";
     rml:logicalTarget :target_000;
     rmli:logicalTargetMap :dynamic_target_007.
-:dynamic_target_007 rr:template "http://knows.base/logical_target/product-{product_id}-bis".
+:dynamic_target_007 rr:template "http://knows.base/logical_target/product-{product_id}".
 :pom_003 a rr:PredicateObjectMap.
 :map_products2_000 rr:predicateObjectMap :pom_003.
 :pm_003 a rr:PredicateMap.
@@ -138,7 +145,7 @@
     rr:termType rr:Literal;
     rml:logicalTarget :target_002;
     rmli:logicalTargetMap :dynamic_target_008.
-:dynamic_target_008 rr:template "http://knows.base/logical_target/product-{product_id}-b-bis".
+:dynamic_target_008 rr:template "http://knows.base/logical_target/product-{product_id}-b".
 :om_003 rmli:logicalTargetMap :dynamic_target_009.
 :dynamic_target_009 rr:template "http://knows.base/logical_target/product-{product_id}-4".
 :pom_004 a rr:PredicateObjectMap.
@@ -152,7 +159,7 @@
     rr:termType rr:Literal;
     rml:logicalTarget :target_002;
     rmli:logicalTargetMap :dynamic_target_010.
-:dynamic_target_010 rr:template "http://knows.base/logical_target/product-{product_id}-b-bis".
+:dynamic_target_010 rr:template "http://knows.base/logical_target/product-{product_id}-b".
 :om_004 rmli:logicalTargetMap :dynamic_target_011.
 :dynamic_target_011 rr:template "http://knows.base/logical_target/product-{product_id}-5".
 :map_UserAuthentication_000 rml:logicalSource :source_000;
@@ -674,7 +681,7 @@
     rdfs:label "LT-product-bis".
 :s_015 a rr:SubjectMap.
 :map_LT-product-bis_000 rr:subjectMap :s_015.
-:s_015 rr:template "http://knows.base/logical_target/product-{product_id}-bis";
+:s_015 rr:template "http://knows.base/logical_target/product-{product_id}";
     rml:logicalTarget rmli:ThisMapping.
 :pom_052 a rr:PredicateObjectMap.
 :map_LT-product-bis_000 rr:predicateObjectMap :pom_052.
@@ -701,14 +708,14 @@
 :pm_054 rr:constant rmlt:target.
 :pom_054 rr:objectMap :om_054.
 :om_054 a rr:ObjectMap;
-    rr:template "http://knows.base/target/product-{product_id}-bis";
+    rr:template "http://knows.base/target/product-{product_id}";
     rr:termType rr:IRI.
 :map_T-product-bis_000 rml:logicalSource :source_001;
     a rr:TriplesMap;
     rdfs:label "T-product-bis".
 :s_016 a rr:SubjectMap.
 :map_T-product-bis_000 rr:subjectMap :s_016.
-:s_016 rr:template "http://knows.base/target/product-{product_id}-bis";
+:s_016 rr:template "http://knows.base/target/product-{product_id}";
     rml:logicalTarget rmli:ThisMapping.
 :pom_055 a rr:PredicateObjectMap.
 :map_T-product-bis_000 rr:predicateObjectMap :pom_055.
@@ -905,7 +912,7 @@
     rdfs:label "LT-product-b-bis".
 :s_021 a rr:SubjectMap.
 :map_LT-product-b-bis_000 rr:subjectMap :s_021.
-:s_021 rr:template "http://knows.base/logical_target/product-{product_id}-b-bis";
+:s_021 rr:template "http://knows.base/logical_target/product-{product_id}-b";
     rml:logicalTarget rmli:ThisMapping.
 :pom_073 a rr:PredicateObjectMap.
 :map_LT-product-b-bis_000 rr:predicateObjectMap :pom_073.
@@ -932,14 +939,14 @@
 :pm_075 rr:constant rmlt:target.
 :pom_075 rr:objectMap :om_075.
 :om_075 a rr:ObjectMap;
-    rr:template "http://knows.base/target/product-{product_id}-b-bis";
+    rr:template "http://knows.base/target/product-{product_id}-b";
     rr:termType rr:IRI.
 :map_T-product-b-bis_000 rml:logicalSource :source_001;
     a rr:TriplesMap;
     rdfs:label "T-product-b-bis".
 :s_022 a rr:SubjectMap.
 :map_T-product-b-bis_000 rr:subjectMap :s_022.
-:s_022 rr:template "http://knows.base/target/product-{product_id}-b-bis";
+:s_022 rr:template "http://knows.base/target/product-{product_id}-b";
     rml:logicalTarget rmli:ThisMapping.
 :pom_076 a rr:PredicateObjectMap.
 :map_T-product-b-bis_000 rr:predicateObjectMap :pom_076.
@@ -1160,3 +1167,62 @@
 :om_096 a rr:ObjectMap;
     rr:constant <http://example.com/auth/manufacturer1>;
     rr:termType rr:IRI.
+:map_products-other-ontology_000 rml:logicalSource :source_000;
+    a rr:TriplesMap;
+    rdfs:label "products-other-ontology".
+:s_027 a rr:SubjectMap.
+:map_products-other-ontology_000 rr:subjectMap :s_027.
+:s_027 rr:template "http://example.com/manufacturer1/{ProductID}";
+    rml:logicalTarget :target_003.
+:pom_097 a rr:PredicateObjectMap.
+:map_products-other-ontology_000 rr:predicateObjectMap :pom_097.
+:pm_097 a rr:PredicateMap.
+:pom_097 rr:predicateMap :pm_097.
+:pm_097 rr:constant voc:propertyOne.
+:pom_097 rr:objectMap :om_097.
+:om_097 a rr:ObjectMap;
+    rml:reference "Property1";
+    rr:termType rr:Literal.
+:pom_098 a rr:PredicateObjectMap.
+:map_products-other-ontology_000 rr:predicateObjectMap :pom_098.
+:pm_098 a rr:PredicateMap.
+:pom_098 rr:predicateMap :pm_098.
+:pm_098 rr:constant voc:propertyTwo.
+:pom_098 rr:objectMap :om_098.
+:om_098 a rr:ObjectMap;
+    rml:reference "Property2";
+    rr:termType rr:Literal.
+:pom_099 a rr:PredicateObjectMap.
+:map_products-other-ontology_000 rr:predicateObjectMap :pom_099.
+:pm_099 a rr:PredicateMap.
+:pom_099 rr:predicateMap :pm_099.
+:pm_099 rr:constant voc:propertyThree.
+:pom_099 rr:objectMap :om_099.
+:om_099 a rr:ObjectMap;
+    rml:reference "Property3";
+    rr:termType rr:Literal.
+:map_products2-other-ontology_000 rml:logicalSource :source_001;
+    a rr:TriplesMap;
+    rdfs:label "products2-other-ontology".
+:s_028 a rr:SubjectMap.
+:map_products2-other-ontology_000 rr:subjectMap :s_028.
+:s_028 rr:template "http://example.com/manufacturer1/{product_id}";
+    rml:logicalTarget :target_003.
+:pom_100 a rr:PredicateObjectMap.
+:map_products2-other-ontology_000 rr:predicateObjectMap :pom_100.
+:pm_100 a rr:PredicateMap.
+:pom_100 rr:predicateMap :pm_100.
+:pm_100 rr:constant voc:propertyFour.
+:pom_100 rr:objectMap :om_100.
+:om_100 a rr:ObjectMap;
+    rml:reference "property_4";
+    rr:termType rr:Literal.
+:pom_101 a rr:PredicateObjectMap.
+:map_products2-other-ontology_000 rr:predicateObjectMap :pom_101.
+:pm_101 a rr:PredicateMap.
+:pom_101 rr:predicateMap :pm_101.
+:pm_101 rr:constant voc:propertyFive.
+:pom_101 rr:objectMap :om_101.
+:om_101 a rr:ObjectMap;
+    rml:reference "property_5";
+    rr:termType rr:Literal.

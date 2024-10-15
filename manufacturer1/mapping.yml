@@ -43,6 +43,11 @@ targets:
     access: http://localhost:3000/manufacturer1/products-b
     serialization: turtle
     authentication: auth
+  products-other-ontology:
+    type: solid_resource
+    access: http://localhost:3000/manufacturer1/products-other-ontology
+    serialization: turtle
+    authentication: auth
 authentications:
   auth:
     username: hello@manufacturer1.com
@@ -77,7 +82,7 @@ mappings:
           value: $(Property3)
           targets:
           - products-b
-          - LT:product-$(ProductID)-a
+          - LT:product-$(ProductID)-b
           - LT:product-$(ProductID)-3
   products2:
     sources: products2
@@ -85,25 +90,25 @@ mappings:
       value: ex:manufacturer1/$(product_id)
       targets:
         - products
-        - LT:product-$(product_id)-bis
+        - LT:product-$(product_id)
     po:
       - p: voc:fourthProperty
         o:
           value: $(property_4)
           targets:
             - products-b
-            - LT:product-$(product_id)-b-bis
+            - LT:product-$(product_id)-b
             - LT:product-$(product_id)-4
       - p: voc:fifthProperty
         o:
           value: $(property_5)
           targets:
             - products-b
-            - LT:product-$(product_id)-b-bis
+            - LT:product-$(product_id)-b
             - LT:product-$(product_id)-5
 #reusable authentication, TODO add uri to YARRRML
   UserAuthentication:
-    sources: products
+    sources: empty
     s:
       value: ex:auth/manufacturer1
       targets: ThisMapping
@@ -232,16 +237,16 @@ mappings:
   LT-product-bis:
     sources: products2
     s:
-      value: LT:product-$(product_id)-bis
+      value: LT:product-$(product_id)
       targets: ThisMapping
     po:
       - [a, rml:LogicalTarget~iri]
       - [rmlt:serialization, formats:Turtle~iri]
-      - [rmlt:target, T:product-$(product_id)-bis~iri]
+      - [rmlt:target, T:product-$(product_id)~iri]
   T-product-bis:
     sources: products2
     s:
-      value: T:product-$(product_id)-bis
+      value: T:product-$(product_id)
       targets: ThisMapping
     po:
       - [a, rmlt:Target~iri]
@@ -289,16 +294,16 @@ mappings:
   LT-product-b-bis:
     sources: products2
     s:
-      value: LT:product-$(product_id)-b-bis
+      value: LT:product-$(product_id)-b
       targets: ThisMapping
     po:
       - [a, rml:LogicalTarget~iri]
       - [rmlt:serialization, formats:Turtle~iri]
-      - [rmlt:target, T:product-$(product_id)-b-bis~iri]
+      - [rmlt:target, T:product-$(product_id)-b~iri]
   T-product-b-bis:
     sources: products2
     s:
-      value: T:product-$(product_id)-b-bis
+      value: T:product-$(product_id)-b
       targets: ThisMapping
     po:
       - [a, rmlt:Target~iri]
@@ -351,3 +356,23 @@ mappings:
       - [a, rmli:SolidAclTarget~iri]
       - [rmli:forResource, http://localhost:3000/manufacturer1/$(access_to)~iri]
       - [idsa:userAuthentication, ex:auth/manufacturer1~iri]
+## Other ontology
+  products-other-ontology:
+    sources: products
+    s:
+      value: ex:manufacturer1/$(ProductID)
+      targets:
+        - products-other-ontology
+    po:
+      - [voc:propertyOne, $(Property1)]
+      - [voc:propertyTwo, $(Property2)]
+      - [voc:propertyThree, $(Property3)]
+  products2-other-ontology:
+    sources: products2
+    s:
+      value: ex:manufacturer1/$(product_id)
+      targets:
+        - products-other-ontology
+    po:
+      - [voc:propertyFour, $(property_4)]
+      - [voc:propertyFive, $(property_5)]

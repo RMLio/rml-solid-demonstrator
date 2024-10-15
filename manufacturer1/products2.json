@@ -1,6 +1,31 @@
 {
     "products": [
         {
+            "product_id": 10001,
+            "property_4": "4_1",
+            "property_5": "5_1"
+        },
+        {
+            "product_id": 10002,
+            "property_4": "4_2",
+            "property_5": "5_2"
+        },
+        {
+            "product_id": 10003,
+            "property_4": "4_3",
+            "property_5": "5_3"
+        },
+        {
+            "product_id": 10004,
+            "property_4": "4_4",
+            "property_5": "5_4"
+        },
+        {
+            "product_id": 10005,
+            "property_4": "4_5",
+            "property_5": "5_5"
+        },
+        {
             "product_id": 10006,
             "property_4": "4_6",
             "property_5": "5_6"
@@ -34,46 +59,6 @@
             "product_id": 10012,
             "property_4": "4_12",
             "property_5": "5_12"
-        },
-        {
-            "product_id": 10013,
-            "property_4": "4_13",
-            "property_5": "5_13"
-        },
-        {
-            "product_id": 10014,
-            "property_4": "4_14",
-            "property_5": "5_14"
-        },
-        {
-            "product_id": 10015,
-            "property_4": "4_15",
-            "property_5": "5_15"
-        },
-        {
-            "product_id": 10016,
-            "property_4": "4_16",
-            "property_5": "5_16"
-        },
-        {
-            "product_id": 10017,
-            "property_4": "4_17",
-            "property_5": "5_17"
-        },
-        {
-            "product_id": 10018,
-            "property_4": "4_18",
-            "property_5": "5_18"
-        },
-        {
-            "product_id": 10019,
-            "property_4": "4_19",
-            "property_5": "5_19"
-        },
-        {
-            "product_id": 10020,
-            "property_4": "4_20",
-            "property_5": "5_20"
         }
     ]
 }

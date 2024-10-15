@@ -1,19 +1,69 @@
 # RML4SOLID VALIDATION
 
-## ELABORATED SCENARIO'S
+## INTRODUCTION
 
-1. Expose one resource including all properties of all products
-2. Expose two resources, dividing the information of all products based on two categories of product properties
-3. Expose one resource per product, including all properties of that product
-4. Expose two resources per product, dividing the product information  based on two categories of product properties
-5. Expose one resource per property per product
-6. Expose all above scenario's in one pod (multiple overlapping views over the same data)
+With this repository we demonstrate the capabilities of RML4SOLID. 
 
-These scenario's showcase that our solution offers the needed flexibility to support fine-grained access control.  
-The source data en mapping for the scenario's can be inspected in [./manufacturer1/](./manufacturer1/).  
-The results of the execution of the mapping can be inspected in the Solid pods: [./testpods/pods/manufacturer1/](./testpods/pods/manufacturer1/).   
+We map source data from two manufacturers ([./manufacturer1/](./manufacturer1/) and [./manufacturer2/](./manufacturer2/) and add the resulting data as multiple views over the same data on their Solid pods([./Community_Solid_Server/pods/manufacturer1/](./Community_Solid_Server/pods/manufacturer1/) and [./Community_Solid_Server/pods/manufacturer2/](./Community_Solid_Server/pods/manufacturer2/)). The manufacturers manage the read access to the resources on their Solid pods via a locally stored csv file ([./manufacturer1/read_access.csv](./manufacturer1/read_access.csv) and [./manufacturer2/read_access.csv](./manufacturer2/read_access.csv)). The mapping files of the manufacturers ([./manufacturer1/mapping.yml](./manufacturer1/mapping.yml) and [./manufacturer2/mapping.yml](./manufacturer2/mapping.yml)) also handle the access control files. 
 
-## SETUP
+![image](pipeline.pdf)
+
+## MAPPING OF ELABORATED SCENARIO'S TO FUNCTIONAL REQUIREMENTS
+
+### 1. Heterogeneous data source
+
+The source data of manufacturer1 is spread over two files, with heterogeneous file formats ([./manufacturer1/products.csv](./manufacturer1/products.csv) and [./manufacturer1/products2.json](./manufacturer1/products2.json)) with heterogeneous labels (e.g. ProductID and product_id).  
+
+Manufacturer2 has one source file ([./manufacturer2/articles.xml](./manufacturer2/articles.xml)) with his own labels (e.g. articlenumber).
+
+### 2. Semantic interoperability
+
+#### 2.1. Different sources mapped to the same ontology
+Manufacturer1 maps source files [./manufacturer1/products.csv](./manufacturer1/products.csv) and [./manufacturer1/products2.json](./manufacturer1/products2.json) to [products](Community_Solid_Server/pods/manufacturer1/products$.ttl).  
+Manufacturer2 maps source file [./manufacturer2/articles.xml](./manufacturer2/articles.xml) to [articles](Community_Solid_Server/pods/manufacturer2/articles$.ttl).  
+Both manufacturers map their source data to the same ontology. 
+
+#### 2.2. Same sources mapped to two ontologies
+
+Manufacturer1 maps his source data additionally to another ontology: [products-other-ontology](Community_Solid_Server/pods/manufacturer1/products-other-ontology$.ttl).  
+
+### 3. Technical interoperability:
+
+#### 3.1. Read access over HTTP
+
+It is possible to retrieve a resource via a HTTTP get request. (example to be added)  
+It is possible to query over multiple resources inside one pod (comunica webclient example to be added)  
+It is possible to query over resources located in multiple pods (comunica webclient example to be added)  
+
+### 3.2. Write access over HTTP
+
+No solution for write over HTTP. All writing is handled in the source data. 
+
+### 3.3. Flexible design
+
+#### 3.3.1. Any granularity
+
+The data can be exposed in any granularity. We included following five examples in our setup: 
+1. one resource including all properties of all products, e.g. [products](Community_Solid_Server/pods/manufacturer1/products$.ttl)
+2. two resources, dividing the information of all products based on two categories of product properties, e.g. [products-a](Community_Solid_Server/pods/manufacturer1/products-a$.ttl)
+3. one resource per product, including all properties of that product, e.g. [product-10001](Community_Solid_Server/pods/manufacturer1/product-10001$.ttl)
+4. two resources per product, dividing the product information  based on two categories of product properties, e.g. [product-10001-a](Community_Solid_Server/pods/manufacturer1/product-10001-a$.ttl)
+5. one resource per property per product  [product-10001-1](Community_Solid_Server/pods/manufacturer1/product-10001-1$.ttl)
+
+#### 3.3.2. Overlapping views
+Our demo includes examples of overlapping views: [products](Community_Solid_Server/pods/manufacturer1/products$.ttl), [product-10001](Community_Solid_Server/pods/manufacturer1/product-10001$.ttl), and [product-10001-1](Community_Solid_Server/pods/manufacturer1/product-10001-1$.ttl). 
+
+#### 3.3.3. Disjoint views
+Our demo includes examples of disjoint views: [products-a](Community_Solid_Server/pods/manufacturer1/products-a$.ttl) versus [products-b](Community_Solid_Server/pods/manufacturer1/products-b$.ttl), [product-10001](Community_Solid_Server/pods/manufacturer1/product-10001$.ttl) versus [product-10002](Community_Solid_Server/pods/manufacturer1/product-10002$.ttl), [product-10001-1](Community_Solid_Server/pods/manufacturer1/product-10001-1$.ttl) versus [product-10001-2](Community_Solid_Server/pods/manufacturer1/product-10001-2$.ttl).   
+
+## 4. Access control 
+
+The manufacturers manage the read access to the resources on their Solid pods via a locally stored csv file ([./manufacturer1/read_access.csv](./manufacturer1/read_access.csv) and [./manufacturer2/read_access.csv](./manufacturer2/read_access.csv)). This data is mapping to ACL files for resources in their Solid pods. 
+
+RML4SOLID offers the needed flexibility (see 3.3.) to support fine-grained access control.    
+
+
+## SETUP OF THE DEMO
 
 - install YARRRML parser 
 ````shell
@@ -42,7 +92,8 @@ npm install
 cd ../
 ````
 
-## TO EXECUTE THE MAPPING
+
+## EXECUTE OF THE DEMO PIPELINE
 
 - start testpods
 
@@ -61,14 +112,17 @@ node index.js
 - go to other terminal and start yarrrml-parser and rmlmapper
 ````shell
 cd ./manufacturer1
-echo 'Converting YARRRML mapping to RML mapping...'
+echo 'Executing mapping manufacturer1...'
 ../yarrrml-parser/bin/parser.js -i mapping.yml -m -o mapping.rml.ttl
+java -jar ../rmlmapper.jar -m mapping.rml.ttl
 
-echo 'Using RML mapping to construct knowledge graph...'
+cd ../manufacturer2
+echo 'Executing mapping manufacturer2...'
+../yarrrml-parser/bin/parser.js -i mapping.yml -m -o mapping.rml.ttl
 java -jar ../rmlmapper.jar -m mapping.rml.ttl
 ````
 
-- Check the generated resources in [./testpods/pods/manufacturer1](./testpods/pods/manufacturer1)
+- Check the generated resources in [./testpods/pods/manufacturer1](Community_Solid_Server/pods/manufacturer1)
 
 ## TODO 
 
