@@ -56,7 +56,7 @@ Our demo includes examples of overlapping views: [products](Community_Solid_Serv
 #### 3.3.3. Disjoint views
 Our demo includes examples of disjoint views: [products-a](Community_Solid_Server/pods/manufacturer1/products-a$.ttl) versus [products-b](Community_Solid_Server/pods/manufacturer1/products-b$.ttl), [product-10001](Community_Solid_Server/pods/manufacturer1/product-10001$.ttl) versus [product-10002](Community_Solid_Server/pods/manufacturer1/product-10002$.ttl), [product-10001-1](Community_Solid_Server/pods/manufacturer1/product-10001-1$.ttl) versus [product-10001-2](Community_Solid_Server/pods/manufacturer1/product-10001-2$.ttl).   
 
-## 4. Access control 
+### 4. Access control 
 
 The manufacturers manage the read access to the resources on their Solid pods via a locally stored csv file ([./manufacturer1/read_access.csv](./manufacturer1/read_access.csv) and [./manufacturer2/read_access.csv](./manufacturer2/read_access.csv)). This data is mapping to ACL files for resources in their Solid pods. 
 
