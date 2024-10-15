@@ -6,7 +6,7 @@ With this repository we demonstrate the capabilities of RML4SOLID.
 
 We map source data from two manufacturers ([./manufacturer1/](./manufacturer1/) and [./manufacturer2/](./manufacturer2/) and add the resulting data as multiple views over the same data on their Solid pods([./Community_Solid_Server/pods/manufacturer1/](./Community_Solid_Server/pods/manufacturer1/) and [./Community_Solid_Server/pods/manufacturer2/](./Community_Solid_Server/pods/manufacturer2/)). The manufacturers manage the read access to the resources on their Solid pods via a locally stored csv file ([./manufacturer1/read_access.csv](./manufacturer1/read_access.csv) and [./manufacturer2/read_access.csv](./manufacturer2/read_access.csv)). The mapping files of the manufacturers ([./manufacturer1/mapping.yml](./manufacturer1/mapping.yml) and [./manufacturer2/mapping.yml](./manufacturer2/mapping.yml)) also handle the access control files. 
 
-![image](pipeline.pdf)
+![image](pipeline.jpg)
 
 ## MAPPING OF ELABORATED SCENARIO'S TO FUNCTIONAL REQUIREMENTS
 
@@ -98,20 +98,20 @@ cd ../
 - start testpods
 
 ````shell
-cd ./testpods
+cd ./Community_Solid_Server
 npx @solid/community-server -c @css:config/file.json --seedConfig ./seeded-pod-config.json -f pods/
 ````
 At question: Ok to proceed > y
 
 - go to other terminal and start solid-target-helper
 ````shell
-cd ./solid-target-helper-and-testpods
+cd ../solid-target-helper-and-testpods
 node index.js
 ````
 
 - go to other terminal and start yarrrml-parser and rmlmapper
 ````shell
-cd ./manufacturer1
+cd ../manufacturer1
 echo 'Executing mapping manufacturer1...'
 ../yarrrml-parser/bin/parser.js -i mapping.yml -m -o mapping.rml.ttl
 java -jar ../rmlmapper.jar -m mapping.rml.ttl
@@ -122,7 +122,7 @@ echo 'Executing mapping manufacturer2...'
 java -jar ../rmlmapper.jar -m mapping.rml.ttl
 ````
 
-- Check the generated resources in [./testpods/pods/manufacturer1](Community_Solid_Server/pods/manufacturer1)
+- Check the generated resources in [./Communicty_Solid_Server/pods/manufacturer1/](Community_Solid_Server/pods/manufacturer1/) and [./Communicty_Solid_Server/pods/manufacturer2/](Community_Solid_Server/pods/manufacturer2/).
 
 ## TODO 
 
