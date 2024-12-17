@@ -225,7 +225,7 @@ In our demonstrator the [third manufacturer](./manufacturer3) has organized his 
 He reuses the RML mapping of the first manufacturer, updating it only with the base URI of his Solid pod, i.e. and with his authentication info. 
 
 
-### 8. Comparison with the state of the art
+## Comparison with the state of the art
 
 |                                                | **Morph-LDP**      | **LDP-DL**         | **RML+SOLID** |
 |------------------------------------------------|--------------------|--------------------|---------------|
