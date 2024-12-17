@@ -41,10 +41,10 @@ For the users, who get read access to selected parts of the manufacturers' data,
 
 The authentication details for the manufacturers and users adhere to following pattern (X should be replaced the manufacturer's or user's number): 
 
-| email                  | password | webId                                                   | oidcIssuer                        |  
-|------------------------|----------|---------------------------------------------------------|-----------------------------------|
-| info@manufacturerX.com | abc123   | http://localhost:3000/manufacturerX/profile/card#me     | http://localhost:3000/            |  
-| info@userX.com         | abc123   | http://localhost:3000/userX/profile/card#me | http://localhost:3000/            |  
+| email                   | password | webId                                                   | oidcIssuer                        |  
+|-------------------------|----------|---------------------------------------------------------|-----------------------------------|
+| hello@manufacturerX.com | abc123   | http://localhost:3000/manufacturerX/profile/card#me     | http://localhost:3000/            |  
+| hello@userX.com         | abc123   | http://localhost:3000/userX/profile/card#me | http://localhost:3000/            |  
 
 With the RML+Solid pipeline, we execute the extended RML mappings to convert the source data and access control data to RDF data and to publish the RDF data on the Solid pods of the manufacturers.
 
