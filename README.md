@@ -39,6 +39,13 @@ For the users, who get read access to selected parts of the manufacturers' data,
 [./CommunitySolidServer/pods/userX/](./CommunitySolidServer/pods/)
 .
 
+The authentication details for the manufacturers and users adhere to following pattern (X should be replaced the manufacturer's or user's number): 
+
+| email                  | password | webId                                                   | oidcIssuer                        |  
+|------------------------|----------|---------------------------------------------------------|-----------------------------------|
+| info@manufacturerX.com | abc123   | http://localhost:3000/manufacturerX/profile/card#me     | http://localhost:3000/            |  
+| info@userX.com         | abc123   | http://localhost:3000/userX/profile/card#me | http://localhost:3000/            |  
+
 With the RML+Solid pipeline, we execute the extended RML mappings to convert the source data and access control data to RDF data and to publish the RDF data on the Solid pods of the manufacturers.
 
 ## Technical Setup
@@ -167,11 +174,11 @@ RML maps these data of CSV files to [Access Control List (ACL) rules](https://so
 The manufacturers manage the read access to the resources on their Solid pods via a locally stored csv file ([./manufacturer1/read_access.csv](manufacturer1/data/read_access.csv) and [./manufacturer2/read_access.csv](manufacturer2/data/read_access.csv)). This data is mapped to ACL files, and linked to the relevant resources in their Solid pods.
 
 Only users with *read access rights* can retrieve the content of a resource.   
-**User1** has *read access* to http://localhost:3000/manufacturer1/product-10002
+**User1** has *read access* to `http://localhost:3000/manufacturer1/product-10002`
 ````shell
 node ./CSS-Getter/getResource.js email=hello@user1.com password=abc123 webId=http://localhost:3000/user1/profile/card#me oidcIssuer=http://localhost:3000/ absoluteURI=http://localhost:3000/manufacturer1/product-10002 
 ````
-**User2** has *no access* to http://localhost:3000/manufacturer1/product-10002
+**User2** has *no access* to `http://localhost:3000/manufacturer1/product-10002`
 ````shell
 node ./CSS-Getter/getResource.js email=hello@user2.com password=abc123 webId=http://localhost:3000/user2/profile/card#me oidcIssuer=http://localhost:3000/ absoluteURI=http://localhost:3000/manufacturer1/product-10002 
 ````
