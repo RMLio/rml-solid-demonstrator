@@ -1,0 +1,1 @@
+{"key":"idp/adapter/ReplayDetection/0i5uURrVVtDm69EhLwB04Pi1qUdrI2cxbT63zPPixDo","payload":{"expires":"2024-12-17T06:57:14.642Z","payload":{"iat":1734418334,"exp":1734418634,"iss":"my-token_b2b05c00-c0f7-4490-8e0b-125684963940","kind":"ReplayDetection","jti":"0i5uURrVVtDm69EhLwB04Pi1qUdrI2cxbT63zPPixDo"}}}
