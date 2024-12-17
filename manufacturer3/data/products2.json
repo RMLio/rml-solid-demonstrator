@@ -1,0 +1,104 @@
+{
+    "products": [
+        {
+            "product_id": "P1",
+            "property_4": "4_P1",
+            "property_5": "P5_P1"
+        },
+        {
+            "product_id": "P2",
+            "property_4": "4_P2",
+            "property_5": "5_P2"
+        },
+        {
+            "product_id": "P3",
+            "property_4": "4_P3",
+            "property_5": "5_P3"
+        },
+        {
+            "product_id": "P4",
+            "property_4": "4_P4",
+            "property_5": "5_P4"
+        },
+        {
+            "product_id": "P5",
+            "property_4": "4_P5",
+            "property_5": "5_P5"
+        },
+        {
+            "product_id": "P6",
+            "property_4": "4_P6",
+            "property_5": "5_P6"
+        },
+        {
+            "product_id": "P7",
+            "property_4": "4_P7",
+            "property_5": "5_P7"
+        },
+        {
+            "product_id": "P8",
+            "property_4": "4_P8",
+            "property_5": "5_P8"
+        },
+        {
+            "product_id": "P9",
+            "property_4": "4_P9",
+            "property_5": "5_P9"
+        },
+        {
+            "product_id": "P10",
+            "property_4": "4_P10",
+            "property_5": "5_P10"
+        },
+        {
+            "product_id": "P11",
+            "property_4": "4_P11",
+            "property_5": "5_P11"
+        },
+        {
+            "product_id": "P12",
+            "property_4": "4_P12",
+            "property_5": "5_P12"
+        },
+        {
+            "product_id": "P13",
+            "property_4": "4_P13",
+            "property_5": "5_P13"
+        },
+        {
+            "product_id": "P14",
+            "property_4": "4_P14",
+            "property_5": "5_P14"
+        },
+        {
+            "product_id": "P15",
+            "property_4": "4_P15",
+            "property_5": "5_P15"
+        },
+        {
+            "product_id": "P16",
+            "property_4": "4_P16",
+            "property_5": "5_P16"
+        },
+        {
+            "product_id": "P17",
+            "property_4": "4_P17",
+            "property_5": "5_P17"
+        },
+        {
+            "product_id": "P18",
+            "property_4": "4_P18",
+            "property_5": "5_P18"
+        },
+        {
+            "product_id": "P19",
+            "property_4": "4_P19",
+            "property_5": "5_P19"
+        },
+        {
+            "product_id": "P20",
+            "property_4": "4_P20",
+            "property_5": "5_P20"
+        }
+    ]
+}

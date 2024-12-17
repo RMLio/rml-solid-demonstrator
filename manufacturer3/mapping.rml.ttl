@@ -14,10 +14,10 @@
 
 # authentication
 :authentication a rmle:CssClientCredentialsAuthentication;
-    rmle:authEmail "hello@manufacturer1.com";
+    rmle:authEmail "hello@manufacturer3.com";
     rmle:authPassword "abc123";
     rmle:authOidcIssuer <http://localhost:3000/>;
-    rmle:authWebId <http://localhost:3000/manufacturer1/profile/card#me>.
+    rmle:authWebId <http://localhost:3000/manufacturer3/profile/card#me>.
 
 # logical sources
 :ls_products1 a rml:LogicalSource;
@@ -35,25 +35,25 @@
 :lt_products a rml:LogicalTarget;
     rml:serialization formats:Turtle;
     rml:target [ a rmle:DirectHttpRequest;
-        htv:absoluteURI "http://localhost:3000/manufacturer1/products";
+        htv:absoluteURI "http://localhost:3000/manufacturer3/products";
         rmle:userAuthentication :authentication;
     ].
 :lt_products-a a rml:LogicalTarget;
     rml:serialization formats:Turtle;
     rml:target [ a rmle:DirectHttpRequest;
-        htv:absoluteURI "http://localhost:3000/manufacturer1/products-a";
+        htv:absoluteURI "http://localhost:3000/manufacturer3/products-a";
         rmle:userAuthentication :authentication;
     ].
 :lt_products-b a rml:LogicalTarget;
     rml:serialization formats:Turtle;
     rml:target [ a rmle:DirectHttpRequest;
-        htv:absoluteURI "http://localhost:3000/manufacturer1/products-b";
+        htv:absoluteURI "http://localhost:3000/manufacturer3/products-b";
         rmle:userAuthentication :authentication;
     ].
 :lt_products-other-ontology a rml:LogicalTarget;
     rml:serialization formats:Turtle;
     rml:target [ a rmle:DirectHttpRequest;
-        htv:absoluteURI "http://localhost:3000/manufacturer1/products-other-ontology";
+        htv:absoluteURI "http://localhost:3000/manufacturer3/products-other-ontology";
         rmle:userAuthentication :authentication;
     ].
 
@@ -61,7 +61,7 @@
 :tm_products1 a rml:TriplesMap;
     rml:logicalSource :ls_products1;
     rml:subjectMap [ a rml:SubjectMap;
-        rml:template "http://example.com/manufacturer1/{ProductID}";
+        rml:template "http://example.com/manufacturer3/{ProductID}";
         rml:class voc:Product;
         rml:logicalTarget :lt_products;
         rmle:logicalTargetMap :ltm_productid;
@@ -96,8 +96,8 @@
 :tm_products2 a rml:TriplesMap;
     rml:logicalSource :ls_products2;
     rml:subjectMap [ a rml:SubjectMap;
+        rml:template "http://example.com/manufacturer3/{ProductID}";
         rml:class voc:Product;
-        rml:template "http://example.com/manufacturer1/{ProductID}";
         rml:logicalTarget :lt_products;
         rmle:logicalTargetMap :ltm_productid-bis;
     rml:predicateObjectMap [ a rml:PredicateObjectMap;
@@ -124,7 +124,7 @@
     rml:logicalSource :ls_products1;
     rml:subjectMap [ a rml:SubjectMap;
         rml:class voc2:Stuff;
-        rml:template "http://example.com/manufacturer1/{ProductID}";
+        rml:template "http://example.com/manufacturer3/{ProductID}";
         rml:logicalTarget :lt_products-other-ontology;
     ];
     rml:predicateObjectMap [ a rml:PredicateObjectMap;
@@ -149,7 +149,7 @@
     rml:logicalSource :ls_products2;
     rml:subjectMap [ a rml:SubjectMap;
         rml:class voc2:Stuff;
-        rml:template "http://example.com/manufacturer1/{product_id}";
+        rml:template "http://example.com/manufacturer3/{product_id}";
         rml:logicalTarget :lt_products-other-ontology;
     ];
     rml:predicateObjectMap [ a rml:PredicateObjectMap;
@@ -181,12 +181,12 @@
     ], [ a rml:PredicateObjectMap;
         rml:predicate acl:accessTo;
         rml:objectMap [ a rml:ObjectMap;
-            rml:template "http://localhost:3000/manufacturer1/{access_to}";
+            rml:template "http://localhost:3000/manufacturer3/{access_to}";
             rml:termType rml:IRI;
         ];
     ], [ a rml:PredicateObjectMap;
-          rml:predicate acl:mode;
-          rml:object acl:Read;
+              rml:predicate acl:mode;
+              rml:object acl:Read;
     ];
 .
 
@@ -199,11 +199,11 @@
     ];
     rml:predicateObjectMap [ a rml:PredicateObjectMap;
         rml:predicate acl:agent;
-        rml:object <http://localhost:3000/manufacturer1/profile/card#me>;
+        rml:object <http://localhost:3000/manufacturer3/profile/card#me>;
     ], [ a rml:PredicateObjectMap;
         rml:predicate acl:accessTo;
         rml:objectMap [ a rml:ObjectMap;
-            rml:template "http://localhost:3000/manufacturer1/{access_to}";
+            rml:template "http://localhost:3000/manufacturer3/{access_to}";
             rml:termType rml:IRI;
         ];
     ], [ a rml:PredicateObjectMap;
@@ -249,7 +249,7 @@
     rml:predicateObjectMap [ a rml:PredicateObjectMap;
         rml:predicate htv:absoluteURI;
         rml:objectMap [ a rml:ObjectMap;
-            rml:template "http://localhost:3000/manufacturer1/product-{ProductID}";
+            rml:template "http://localhost:3000/manufacturer3/product-{ProductID}";
             rml:termType rml:Literal;
         ];
     ];
@@ -292,7 +292,7 @@
     rml:predicateObjectMap [ a rml:PredicateObjectMap;
         rml:predicate htv:absoluteURI;
         rml:objectMap [ a rml:ObjectMap;
-            rml:template "http://localhost:3000/manufacturer1/product-{ProductID}-1";
+            rml:template "http://localhost:3000/manufacturer3/product-{ProductID}-1";
             rml:termType rml:Literal;
         ];
     ];
@@ -335,7 +335,7 @@
     rml:predicateObjectMap [ a rml:PredicateObjectMap;
         rml:predicate htv:absoluteURI;
         rml:objectMap [ a rml:ObjectMap;
-            rml:template "http://localhost:3000/manufacturer1/product-{ProductID}-2";
+            rml:template "http://localhost:3000/manufacturer3/product-{ProductID}-2";
             rml:termType rml:Literal;
         ];
     ];
@@ -378,7 +378,7 @@
     rml:predicateObjectMap [ a rml:PredicateObjectMap;
         rml:predicate htv:absoluteURI;
         rml:objectMap [ a rml:ObjectMap;
-            rml:template "http://localhost:3000/manufacturer1/product-{ProductID}-3";
+            rml:template "http://localhost:3000/manufacturer3/product-{ProductID}-3";
             rml:termType rml:Literal;
         ];
     ];
@@ -421,7 +421,7 @@
     rml:predicateObjectMap [ a rml:PredicateObjectMap;
         rml:predicate htv:absoluteURI;
         rml:objectMap [ a rml:ObjectMap;
-            rml:template "http://localhost:3000/manufacturer1/product-{ProductID}-a";
+            rml:template "http://localhost:3000/manufacturer3/product-{ProductID}-a";
             rml:termType rml:Literal;
         ];
     ];
@@ -464,7 +464,7 @@
     rml:predicateObjectMap [ a rml:PredicateObjectMap;
         rml:predicate htv:absoluteURI;
         rml:objectMap [ a rml:ObjectMap;
-            rml:template "http://localhost:3000/manufacturer1/product-{ProductID}-b";
+            rml:template "http://localhost:3000/manufacturer3/product-{ProductID}-b";
             rml:termType rml:Literal;
         ];
     ];
@@ -507,7 +507,7 @@
     rml:predicateObjectMap [ a rml:PredicateObjectMap;
         rml:predicate htv:absoluteURI;
         rml:objectMap [ a rml:ObjectMap;
-            rml:template "http://localhost:3000/manufacturer1/product-{ProductID}";
+            rml:template "http://localhost:3000/manufacturer3/product-{ProductID}";
             rml:termType rml:Literal;
         ];
     ];
@@ -550,7 +550,7 @@
     rml:predicateObjectMap [ a rml:PredicateObjectMap;
         rml:predicate htv:absoluteURI;
         rml:objectMap [ a rml:ObjectMap;
-            rml:template "http://localhost:3000/manufacturer1/product-{product_id}-4";
+            rml:template "http://localhost:3000/manufacturer3/product-{product_id}-4";
             rml:termType rml:Literal;
         ];
     ];
@@ -593,7 +593,7 @@
     rml:predicateObjectMap [ a rml:PredicateObjectMap;
         rml:predicate htv:absoluteURI;
         rml:objectMap [ a rml:ObjectMap;
-            rml:template "http://localhost:3000/manufacturer1/product-{product_id}-5";
+            rml:template "http://localhost:3000/manufacturer3/product-{product_id}-5";
             rml:termType rml:Literal;
         ];
     ];
@@ -636,7 +636,7 @@
     rml:predicateObjectMap [ a rml:PredicateObjectMap;
         rml:predicate htv:absoluteURI;
         rml:objectMap [ a rml:ObjectMap;
-            rml:template "http://localhost:3000/manufacturer1/product-{product_id}-b";
+            rml:template "http://localhost:3000/manufacturer3/product-{product_id}-b";
             rml:termType rml:Literal;
         ];
     ];
@@ -679,7 +679,7 @@
     rml:predicateObjectMap [ a rml:PredicateObjectMap;
         rml:predicate rmle:linkingAbsoluteURI;
         rml:objectMap [ a rml:ObjectMap;
-            rml:template "http://localhost:3000/manufacturer1/{access_to}";
+            rml:template "http://localhost:3000/manufacturer3/{access_to}";
             rml:termType rml:Literal;
         ];
     ], [ a rml:PredicateObjectMap;
