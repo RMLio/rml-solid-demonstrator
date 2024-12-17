@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<articles>
+    <article>
+        <articlenumber>A11</articlenumber>
+        <propertyone>a1</propertyone>
+        <propertytwo>a2</propertytwo>
+        <propertythree>a3</propertythree>
+        <propertyfour>a4</propertyfour>
+        <propertyfive>a5</propertyfive>
+    </article>
+    <article>
+        <articlenumber>B22</articlenumber>
+        <propertyone>b1</propertyone>
+        <propertytwo>b2</propertytwo>
+        <propertythree>b3</propertythree>
+        <propertyfour>b4</propertyfour>
+        <propertyfive>b5</propertyfive>
+    </article>
+    <article>
+        <articlenumber>C33</articlenumber>
+        <propertyone>c1</propertyone>
+        <propertytwo>c2</propertytwo>
+        <propertythree>c3</propertythree>
+        <propertyfour>c4</propertyfour>
+        <propertyfive>c5</propertyfive>
+    </article>
+    <article>
+        <articlenumber>D44</articlenumber>
+        <propertyone>d1</propertyone>
+        <propertytwo>d2</propertytwo>
+        <propertythree>d3</propertythree>
+        <propertyfour>d4</propertyfour>
+        <propertyfive>d5</propertyfive>
+    </article>
+    <article>
+        <articlenumber>E55</articlenumber>
+        <propertyone>e1</propertyone>
+        <propertytwo>e2</propertytwo>
+        <propertythree>e3</propertythree>
+        <propertyfour>e4</propertyfour>
+        <propertyfive>e5</propertyfive>
+    </article>
+</articles>

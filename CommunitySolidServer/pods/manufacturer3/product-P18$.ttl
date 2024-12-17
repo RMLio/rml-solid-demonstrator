@@ -1,0 +1,5 @@
+
+<http://example.com/manufacturer3/P18> a <http://example.com/voc/Product>;
+  <http://example.com/voc/firstProperty> "1_P18";
+  <http://example.com/voc/secondProperty> "2_P18";
+  <http://example.com/voc/thirdProperty> "3_P18" .
