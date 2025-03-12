@@ -1,0 +1,2 @@
+
+<http://example.com/manufacturer3/P9> <http://example.com/voc/fifthProperty> "5_P9" .

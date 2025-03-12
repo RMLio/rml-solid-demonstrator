@@ -1,100 +1,140 @@
 
 <http://example.com/manufacturer3/P1> a <http://example.com/voc/Product>;
+  <http://example.com/voc/fifthProperty> "P5_P1";
   <http://example.com/voc/firstProperty> "1_P1";
+  <http://example.com/voc/fourthProperty> "4_P1";
   <http://example.com/voc/secondProperty> "2_P1";
   <http://example.com/voc/thirdProperty> "3_P1" .
 
 <http://example.com/manufacturer3/P10> a <http://example.com/voc/Product>;
+  <http://example.com/voc/fifthProperty> "5_P10";
   <http://example.com/voc/firstProperty> "1_P10";
+  <http://example.com/voc/fourthProperty> "4_P10";
   <http://example.com/voc/secondProperty> "2_P10";
   <http://example.com/voc/thirdProperty> "3_P10" .
 
 <http://example.com/manufacturer3/P11> a <http://example.com/voc/Product>;
+  <http://example.com/voc/fifthProperty> "5_P11";
   <http://example.com/voc/firstProperty> "1_P11";
+  <http://example.com/voc/fourthProperty> "4_P11";
   <http://example.com/voc/secondProperty> "2_P11";
   <http://example.com/voc/thirdProperty> "3_P11" .
 
 <http://example.com/manufacturer3/P12> a <http://example.com/voc/Product>;
+  <http://example.com/voc/fifthProperty> "5_P12";
   <http://example.com/voc/firstProperty> "1_P12";
+  <http://example.com/voc/fourthProperty> "4_P12";
   <http://example.com/voc/secondProperty> "2_P12";
   <http://example.com/voc/thirdProperty> "3_P12" .
 
 <http://example.com/manufacturer3/P13> a <http://example.com/voc/Product>;
+  <http://example.com/voc/fifthProperty> "5_P13";
   <http://example.com/voc/firstProperty> "1_P13";
+  <http://example.com/voc/fourthProperty> "4_P13";
   <http://example.com/voc/secondProperty> "2_P13";
   <http://example.com/voc/thirdProperty> "3_P13" .
 
 <http://example.com/manufacturer3/P14> a <http://example.com/voc/Product>;
+  <http://example.com/voc/fifthProperty> "5_P14";
   <http://example.com/voc/firstProperty> "1_P14";
+  <http://example.com/voc/fourthProperty> "4_P14";
   <http://example.com/voc/secondProperty> "2_P14";
   <http://example.com/voc/thirdProperty> "3_P14" .
 
 <http://example.com/manufacturer3/P15> a <http://example.com/voc/Product>;
+  <http://example.com/voc/fifthProperty> "5_P15";
   <http://example.com/voc/firstProperty> "1_P15";
+  <http://example.com/voc/fourthProperty> "4_P15";
   <http://example.com/voc/secondProperty> "2_P15";
   <http://example.com/voc/thirdProperty> "3_P15" .
 
 <http://example.com/manufacturer3/P16> a <http://example.com/voc/Product>;
+  <http://example.com/voc/fifthProperty> "5_P16";
   <http://example.com/voc/firstProperty> "1_P16";
+  <http://example.com/voc/fourthProperty> "4_P16";
   <http://example.com/voc/secondProperty> "2_P16";
   <http://example.com/voc/thirdProperty> "3_P16" .
 
 <http://example.com/manufacturer3/P17> a <http://example.com/voc/Product>;
+  <http://example.com/voc/fifthProperty> "5_P17";
   <http://example.com/voc/firstProperty> "1_P17";
+  <http://example.com/voc/fourthProperty> "4_P17";
   <http://example.com/voc/secondProperty> "2_P17";
   <http://example.com/voc/thirdProperty> "3_P17" .
 
 <http://example.com/manufacturer3/P18> a <http://example.com/voc/Product>;
+  <http://example.com/voc/fifthProperty> "5_P18";
   <http://example.com/voc/firstProperty> "1_P18";
+  <http://example.com/voc/fourthProperty> "4_P18";
   <http://example.com/voc/secondProperty> "2_P18";
   <http://example.com/voc/thirdProperty> "3_P18" .
 
 <http://example.com/manufacturer3/P19> a <http://example.com/voc/Product>;
+  <http://example.com/voc/fifthProperty> "5_P19";
   <http://example.com/voc/firstProperty> "1_P19";
+  <http://example.com/voc/fourthProperty> "4_P19";
   <http://example.com/voc/secondProperty> "2_P19";
   <http://example.com/voc/thirdProperty> "3_P19" .
 
 <http://example.com/manufacturer3/P2> a <http://example.com/voc/Product>;
+  <http://example.com/voc/fifthProperty> "5_P2";
   <http://example.com/voc/firstProperty> "1_P2";
+  <http://example.com/voc/fourthProperty> "4_P2";
   <http://example.com/voc/secondProperty> "2_P2";
   <http://example.com/voc/thirdProperty> "3_P2" .
 
 <http://example.com/manufacturer3/P20> a <http://example.com/voc/Product>;
+  <http://example.com/voc/fifthProperty> "5_P20";
   <http://example.com/voc/firstProperty> "1_P20";
+  <http://example.com/voc/fourthProperty> "4_P20";
   <http://example.com/voc/secondProperty> "2_P20";
   <http://example.com/voc/thirdProperty> "3_P20" .
 
 <http://example.com/manufacturer3/P3> a <http://example.com/voc/Product>;
+  <http://example.com/voc/fifthProperty> "5_P3";
   <http://example.com/voc/firstProperty> "1_P3";
+  <http://example.com/voc/fourthProperty> "4_P3";
   <http://example.com/voc/secondProperty> "2_P3";
   <http://example.com/voc/thirdProperty> "3_P3" .
 
 <http://example.com/manufacturer3/P4> a <http://example.com/voc/Product>;
+  <http://example.com/voc/fifthProperty> "5_P4";
   <http://example.com/voc/firstProperty> "1_P4";
+  <http://example.com/voc/fourthProperty> "4_P4";
   <http://example.com/voc/secondProperty> "2_P4";
   <http://example.com/voc/thirdProperty> "3_P4" .
 
 <http://example.com/manufacturer3/P5> a <http://example.com/voc/Product>;
+  <http://example.com/voc/fifthProperty> "5_P5";
   <http://example.com/voc/firstProperty> "1_P5";
+  <http://example.com/voc/fourthProperty> "4_P5";
   <http://example.com/voc/secondProperty> "2_P5";
   <http://example.com/voc/thirdProperty> "3_P5" .
 
 <http://example.com/manufacturer3/P6> a <http://example.com/voc/Product>;
+  <http://example.com/voc/fifthProperty> "5_P6";
   <http://example.com/voc/firstProperty> "1_P6";
+  <http://example.com/voc/fourthProperty> "4_P6";
   <http://example.com/voc/secondProperty> "2_P6";
   <http://example.com/voc/thirdProperty> "3_P6" .
 
 <http://example.com/manufacturer3/P7> a <http://example.com/voc/Product>;
+  <http://example.com/voc/fifthProperty> "5_P7";
   <http://example.com/voc/firstProperty> "1_P7";
+  <http://example.com/voc/fourthProperty> "4_P7";
   <http://example.com/voc/secondProperty> "2_P7";
   <http://example.com/voc/thirdProperty> "3_P7" .
 
 <http://example.com/manufacturer3/P8> a <http://example.com/voc/Product>;
+  <http://example.com/voc/fifthProperty> "5_P8";
   <http://example.com/voc/firstProperty> "1_P8";
+  <http://example.com/voc/fourthProperty> "4_P8";
   <http://example.com/voc/secondProperty> "2_P8";
   <http://example.com/voc/thirdProperty> "3_P8" .
 
 <http://example.com/manufacturer3/P9> a <http://example.com/voc/Product>;
+  <http://example.com/voc/fifthProperty> "5_P9";
   <http://example.com/voc/firstProperty> "1_P9";
+  <http://example.com/voc/fourthProperty> "4_P9";
   <http://example.com/voc/secondProperty> "2_P9";
   <http://example.com/voc/thirdProperty> "3_P9" .

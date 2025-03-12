@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+</body>
+<script src="./solid-auth-fetcher.bundle.js">
+</script>
+<script>
+  const TEST_URL = 'http://localhost:3000/manufacturer1/';
+  async function go() {
+    const authFetcher = await solidAuthFetcher.customAuthFetcher();
+    const result = await solidAuthFetcher.fetch(TEST_URL);
+    document.write(`${result.status}<br>`);
+    if (result.status === 401) {
+      document.write('Logging in!<br>');
+      const session = await authFetcher.login({
+        oidcIssuer: new URL(TEST_URL).origin,
+        redirect: location.href
+      });
+      // FIXME: avoid this hard-coded timeout
+      // Without this you end up at http://localhost:5000/undefined
+      await new Promise(resolve => setTimeout(resolve, 5000));
+      window.location = session.neededAction.redirectUrl;
+    }
+  }
+  go()
+</script>
+</html>

@@ -1,33 +1,33 @@
 
-<http://example.com/manufacturer2/manufacturer2/article-A11> a <http://example.com/voc/Product>;
+<http://example.com/manufacturer1/A11> a <http://example.com/voc/Product>;
   <http://example.com/voc/fifthProperty> "a5";
   <http://example.com/voc/firstProperty> "a1";
   <http://example.com/voc/fourthProperty> "a4";
   <http://example.com/voc/secondProperty> "a2";
   <http://example.com/voc/thirdProperty> "a3" .
 
-<http://example.com/manufacturer2/manufacturer2/article-B22> a <http://example.com/voc/Product>;
+<http://example.com/manufacturer1/B22> a <http://example.com/voc/Product>;
   <http://example.com/voc/fifthProperty> "b5";
   <http://example.com/voc/firstProperty> "b1";
   <http://example.com/voc/fourthProperty> "b4";
   <http://example.com/voc/secondProperty> "b2";
   <http://example.com/voc/thirdProperty> "b3" .
 
-<http://example.com/manufacturer2/manufacturer2/article-C33> a <http://example.com/voc/Product>;
+<http://example.com/manufacturer1/C33> a <http://example.com/voc/Product>;
   <http://example.com/voc/fifthProperty> "c5";
   <http://example.com/voc/firstProperty> "c1";
   <http://example.com/voc/fourthProperty> "c4";
   <http://example.com/voc/secondProperty> "c2";
   <http://example.com/voc/thirdProperty> "c3" .
 
-<http://example.com/manufacturer2/manufacturer2/article-D44> a <http://example.com/voc/Product>;
+<http://example.com/manufacturer1/D44> a <http://example.com/voc/Product>;
   <http://example.com/voc/fifthProperty> "d5";
   <http://example.com/voc/firstProperty> "d1";
   <http://example.com/voc/fourthProperty> "d4";
   <http://example.com/voc/secondProperty> "d2";
   <http://example.com/voc/thirdProperty> "d3" .
 
-<http://example.com/manufacturer2/manufacturer2/article-E55> a <http://example.com/voc/Product>;
+<http://example.com/manufacturer1/E55> a <http://example.com/voc/Product>;
   <http://example.com/voc/fifthProperty> "e5";
   <http://example.com/voc/firstProperty> "e1";
   <http://example.com/voc/fourthProperty> "e4";

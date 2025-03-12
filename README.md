@@ -1,18 +1,26 @@
-# Demonstrator of the RML+Solid pipeline
+# Demonstrator 'Permissioned data sharing from existing source data'
 
 ## Introduction
 
-This demonstrator showcases the capabilities of the RML+Solid pipeline presented in the paper 'Extending RML to Support Permissioned Data Sharing'. 
+This demonstrator showcases the capabilities of the end-to-end pipeline presented in the paper 'Extending RML to Support Permissioned Data Sharing'. 
 
-The RML+Solid pipeline takes heterogeneous data sources and an extended RML mapping as input. 
+The end-to-end pipeline takes heterogeneous data sources and an extended YARRRML mapping as input.   
+Following YARRRML extensions are included in the extended YARRRML mapping: 
+- [HTTP Request Access in YARRRML](https://w3id.org/imec/rml/yarrrml/spec/access/httprequest/20250312/)
+- [Dynamic Targets in YARRRML](https://w3id.org/imec/rml/yarrrml/spec/target/dynamictarget/20250226/)
+
+The extended YARRRML mapping converted to an extended RML mapping using [YARRRML Parser v.1.10.0](https://github.com/RMLio/yarrrml-parser/releases/tag/v1.10.0) as YARRRML processor. 
+
 Following RML extensions are included in the extended RML mapping:  
-- [HTTP Request Access specification](https://rml.io/specs/access/httprequest/20241212/)
-- [Dynamic Target specification](https://rml.io/specs/target/dynamictarget/20241212/)
+- [HTTP Request Access specification](https://w3id.org/imec/rml/specs/access/httprequest/20250312/)
+- [Dynamic Target specification](
+  https://w3id.org/imec/rml/specs/target/dynamictarget/20250113/)
 
-The extended RML mapping is executed with [RMLMapper v7.2.0](https://github.com/RMLio/rmlmapper-java/releases/tag/v7.2.0) as RML processor.  
+The extended RML mapping is executed with [RMLMapper v7.3.1](https://github.com/RMLio/rmlmapper-java/releases/tag/v7.3.1) as RML processor.  
+
 The extended RML mapping defines logical targets for resources on a Solid pod hosted by a [Community Solid Server v7.1.3](https://github.com/CommunitySolidServer/CommunitySolidServer/releases/tag/v7.1.3).  
 
-![RML+Solid pipeline](pipeline.png)
+![end-to-end pipeline](pipeline.png)
 
 
 ## Conceptual Setup
@@ -27,10 +35,10 @@ Per manufacturer, we created
 [./manufacturer1/data/read_access.csv](./manufacturer1/data/read_access.csv),
 [./manufacturer2/data/read_access.csv](./manufacturer2/data/read_access.csv), and
 [./manufacturer3/data/read_access.csv](./manufacturer3/data/read_access.csv);   
-(iii) an extended RML mapping: 
-[./manufacturer1/mapping.rml.ttl](./manufacturer1/mapping.rml.ttl),
-[./manufacturer2/mapping.rml.ttl](./manufacturer2/mapping.rml.ttl) and
-[./manufacturer3/mapping.rml.ttl](./manufacturer3/mapping.rml.ttl);  
+(iii) an extended YARRRML mapping: 
+[./manufacturer1/mapping.yml](./manufacturer1/mapping.yml),
+[./manufacturer2/mapping.yml](./manufacturer2/mapping.yml) and
+[./manufacturer3/mapping.yml](./manufacturer3/mapping.yml);  
 and (iv) and a Solid pod hosted on a Solid Community Server: [./CommunitySolidServer/pods/manufacturer1/](./CommunitySolidServer/pods/manufacturer1/),
 [./CommunitySolidServer/pods/manufacturer2/](./CommunitySolidServer/pods/manufacturer2/), and
 [./CommunitySolidServer/pods/manufacturer3/](./CommunitySolidServer/pods/manufacturer3/),
@@ -46,7 +54,7 @@ The authentication details for the manufacturers and users adhere to following p
 | hello@manufacturerX.com | abc123   | http://localhost:3000/manufacturerX/profile/card#me     | http://localhost:3000/            |  
 | hello@userX.com         | abc123   | http://localhost:3000/userX/profile/card#me | http://localhost:3000/            |  
 
-With the RML+Solid pipeline, we execute the extended RML mappings to convert the source data and access control data to RDF data and to publish the RDF data on the Solid pods of the manufacturers.
+With the end-to-end pipeline, we convert the extended YARRRML mappings to extended RML mappings, and execute the extended RML mappings to convert the source data and access control data to RDF data and to publish the RDF data on the Solid pods of the manufacturers.
 
 ## Technical Setup
 
@@ -70,13 +78,13 @@ docker run --rm -v $(pwd)/config:/config -v $(pwd)/pods:/pods -p 3000:3000 solid
 - PowerShell: `${PDW}`  
 Example for PowerShell: 
 ````
-docker run --name CSS --rm -v ${PWD}/config:/config -v ${PWD}/pods:/pods -p 3000:3000 solidproject/community-server -c /config/file.json --seedConfig /config/seeded-pod-config.json -f /pods
+docker run --name CSS --rm -v ${PWD}/config:/config -v ${PWD}/pods:/pods -p 3000:3000 solidproject/community-server -c /config/file.json --seedConfig /config/seeded-pod-config.json -f /pods  
 ````
 
 The configuration of the Solid pods can be adapted in this file: 
 [./CommunitySolidServer/config/seeded-pod-config.json](./CommunitySolidServer/config/seeded-pod-config.json). 
 
-In this repository contains the state of the Solid pods after executing the RML mappings. 
+In this repository contains the state of the Solid pods after executing the YARRRML mappings. 
 This allows us to refer to specific resources on the Solid pods to explain the features of the RML+Solid pipeline.   
 To restart from scratch, stop the docker, delete the content of the folder [./CommunitySolidServer/pods](./CommunitySolidServer/pods), restart the CommunitySolidServer,and execute the RML mappings with RMLMapper.
 
@@ -90,23 +98,47 @@ docker run --name CSS --rm -v $(pwd)/config:/config -v $(pwd)/pods:/pods -p 3000
 
 ### RMLMapper
 
-- Download [RMLMapper v7.2.0](https://github.com/RMLio/rmlmapper-java/releases/download/v7.2.0/rmlmapper-7.2.0-r374-all.jar) as `rmlmapper.jar` in this folder  
+- Download [RMLMapper v7.3.1](https://github.com/RMLio/rmlmapper-java/releases/download/v7.3.1/rmlmapper-7.3.1-r374-all.jar) has `rmlmapper.jar` in this folder  
 - In a new terminal execute the extended RML mapping of the three manufacturers (this may take some minutes).
 ````shell
+echo $(date)
 cd ./manufacturer1
 echo 'Executing mapping manufacturer1...'
-java -jar ../rmlmapper.jar -m mapping.rml.ttl -d
+docker run --rm -it -v $(pwd)/:/data rmlio/yarrrml-parser:1.10.0 -i /data/mapping.yml -o /data/generated-mapping.rml.ttl
+java -jar ../rmlmapper.jar -m generated-mapping.rml.ttl -d
 cd ../manufacturer2
 echo 'Executing mapping manufacturer2...'
-java -jar ../rmlmapper.jar -m mapping.rml.ttl -d
+docker run --rm -it -v $(pwd)/:/data rmlio/yarrrml-parser:1.10.0 -i /data/mapping.yml -o /data/generated-mapping.rml.ttl
+java -jar ../rmlmapper.jar -m generated-mapping.rml.ttl -d
 cd ../manufacturer3
 echo 'Executing mapping manufacturer3...'
-java -jar ../rmlmapper.jar -m mapping.rml.ttl -d
+docker run --rm -it -v $(pwd)/:/data rmlio/yarrrml-parser:1.10.0 -i /data/mapping.yml -o /data/generated-mapping.rml.ttl
+java -jar ../rmlmapper.jar -m generated-mapping.rml.ttl -d
+echo $(date)
 ````
+
+The commands for Windows users with Powershell: 
+
+````shell
+echo $(date)
+cd ./manufacturer1
+echo 'Executing mapping manufacturer1...'
+docker run --rm -it -v ${PWD}/:/data rmlio/yarrrml-parser:1.10.0 -i /data/mapping.yml -o /data/generated-mapping.rml.ttl
+java -jar ../rmlmapper.jar -m generated-mapping.rml.ttl -d
+cd ../manufacturer2
+echo 'Executing mapping manufacturer2...'
+docker run --rm -it -v ${PWD}/:/data rmlio/yarrrml-parser:1.10.0 -i /data/mapping.yml -o /data/generated-mapping.rml.ttl
+java -jar ../rmlmapper.jar -m generated-mapping.rml.ttl -d
+cd ../manufacturer3
+echo 'Executing mapping manufacturer3...'
+docker run --rm -it -v ${PWD}/:/data rmlio/yarrrml-parser:1.10.0 -i /data/mapping.yml -o /data/generated-mapping.rml.ttl
+java -jar ../rmlmapper.jar -m generated-mapping.rml.ttl -d
+echo $(date)
+````
+
 The content of the Solid pods after the executing of the RML+Solid pipeline can be inspected easily in the backend of the Community Solid Server: [./CommunitySolidServer/pods/manufacturer1](./CommunitySolidServer/pods/manufacturer1),
 [./CommunitySolidServer/pods/manufacturer2](./CommunitySolidServer/pods/manufacturer2), and
 [./CommunitySolidServer/pods/manufacturer3](./CommunitySolidServer/pods/manufacturer3). 
-
 
 ### CSS-Getter
 
@@ -137,7 +169,7 @@ Three manufacturers map their source data to the same ontology, i.e. they used t
 
 Manufacturer1 and Manufacturer3 maps their source data additionally to another ontology:
 [products-other-ontology](CommunitySolidServer/pods/manufacturer1/products-other-ontology$.ttl) and
-[products-other-ontology](CommunitySolidServer/pods/manufacturer1/products-other-ontology$.ttl).
+[products-other-ontology](CommunitySolidServer/pods/manufacturer3/products-other-ontology$.ttl).
 
 ### 2. Technical interoperability: Read access [R3] 
 

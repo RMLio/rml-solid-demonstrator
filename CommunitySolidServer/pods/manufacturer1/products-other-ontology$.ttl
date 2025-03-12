@@ -56,23 +56,11 @@
   <http://example.com/voc2/propertyTwo> "2_8" .
 
 <http://example.com/manufacturer1/10009> a <http://example.com/voc2/Stuff>;
-  <http://example.com/voc2/propertyFive> "5_9";
-  <http://example.com/voc2/propertyFour> "4_9";
   <http://example.com/voc2/propertyOne> "1_9";
   <http://example.com/voc2/propertyThree> "3_9";
   <http://example.com/voc2/propertyTwo> "2_9" .
 
 <http://example.com/manufacturer1/10010> a <http://example.com/voc2/Stuff>;
-  <http://example.com/voc2/propertyFive> "5_10";
-  <http://example.com/voc2/propertyFour> "4_10";
   <http://example.com/voc2/propertyOne> "1_10";
   <http://example.com/voc2/propertyThree> "3_10";
   <http://example.com/voc2/propertyTwo> "2_10" .
-
-<http://example.com/manufacturer1/10011> a <http://example.com/voc2/Stuff>;
-  <http://example.com/voc2/propertyFive> "5_11";
-  <http://example.com/voc2/propertyFour> "4_11" .
-
-<http://example.com/manufacturer1/10012> a <http://example.com/voc2/Stuff>;
-  <http://example.com/voc2/propertyFive> "5_12";
-  <http://example.com/voc2/propertyFour> "4_12" .

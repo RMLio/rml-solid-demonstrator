@@ -1,0 +1,200 @@
+prefixes:
+    acl: http://www.w3.org/ns/auth/acl#
+    formats: http://www.w3.org/ns/formats/
+    ex: http://example.com/
+    voc: http://example.com/voc/
+    voc2: http://example.com/voc2/
+base: http://knows.com/base/
+sources:
+    ls_products1:
+        access: ./data/products.csv
+        referenceFormulation: csv
+    ls_products2:
+        access: ./data/products2.json
+        referenceFormulation: jsonpath
+        iterator: $.products[*]
+    ls_acl:
+        access: ./data/read_access.csv
+        referenceFormulation: csv
+targets:
+    #static targets
+    lt_products:
+        type: directhttprequest
+        access: http://localhost:3000/manufacturer1/products
+        serialization: turtle
+        authentication: auth
+    lt_products-a:
+        type: directhttprequest
+        access: http://localhost:3000/manufacturer1/products-a
+        serialization: turtle
+        authentication: auth
+    lt_products-b:
+        type: directhttprequest
+        access: http://localhost:3000/manufacturer1/products-b
+        serialization: turtle
+        authentication: auth
+    lt_products-other-ontology:
+        type: directhttprequest
+        access: http://localhost:3000/manufacturer1/products-other-ontology
+        serialization: turtle
+        authentication: auth
+# dynamic targets
+    dlt_productid:
+        source: ls_products1
+        type: directhttprequest
+        id: dlt-$(ProductID)
+        access: http://localhost:3000/manufacturer1/product-$(ProductID)
+        serialization: turtle
+        authentication: auth
+    dlt_productid-1:
+        source: ls_products1
+        type: directhttprequest
+        access: http://localhost:3000/manufacturer1/product-$(ProductID)-1
+        serialization: turtle
+        authentication: auth
+    dlt_productid-2:
+        source: ls_products1
+        type: directhttprequest
+        access: http://localhost:3000/manufacturer1/product-$(ProductID)-2
+        serialization: turtle
+        authentication: auth
+    dlt_productid-3:
+        source: ls_products1
+        type: directhttprequest
+        access: http://localhost:3000/manufacturer1/product-$(ProductID)-3
+        serialization: turtle
+        authentication: auth
+    dlt_productid-a:
+        source: ls_products1
+        type: directhttprequest
+        access: http://localhost:3000/manufacturer1/product-$(ProductID)-a
+        serialization: turtle
+        authentication: auth
+    dlt_productid-b:
+        source: ls_products1
+        type: directhttprequest
+        id: dlt-$(ProductID)-b
+        access: http://localhost:3000/manufacturer1/product-$(ProductID)-b
+        serialization: turtle
+        authentication: auth
+    dlt_productid-4:
+        source: ls_products2
+        type: directhttprequest
+        access: http://localhost:3000/manufacturer1/product-$(product_id)-4
+        serialization: turtle
+        authentication: auth
+    dlt_productid-5:
+        source: ls_products2
+        type: directhttprequest
+        access: http://localhost:3000/manufacturer1/product-$(product_id)-5
+        serialization: turtle
+        authentication: auth
+    dlt_acl-access-to:
+        source: ls_acl
+        type: linkedhttprequest
+        access: http://localhost:3000/manufacturer1/$(access_to)
+        rel: acl
+        serialization: turtle
+        authentication: auth
+authentications:
+    auth:
+        type: cssclientcredentials
+        email: hello@manufacturer1.com
+        password: abc123
+        oidcIssuer: http://localhost:3000/
+        webId: http://localhost:3000/manufacturer1/profile/card#me
+mappings:
+    tm_products1:
+        sources: ls_products1
+        s:
+            value: ex:manufacturer1/$(ProductID)
+            targets:
+                - lt_products
+                - dlt_productid
+        po:
+            - [a, voc:Product]
+            - p: voc:firstProperty
+              o:
+                value: $(Property1)
+                targets:
+                - lt_products-a
+                - dlt_productid-a
+                - dlt_productid-1
+            - p: voc:secondProperty
+              o:
+                  value: $(Property2)
+                  targets:
+                      - lt_products-a
+                      - dlt_productid-a
+                      - dlt_productid-2
+            - p: voc:thirdProperty
+              o:
+                  value: $(Property3)
+                  targets:
+                      - lt_products-b
+                      - dlt_productid-b
+                      - dlt_productid-3
+    tm_products2:
+        sources: ls_products2
+        s:
+            value: ex:manufacturer1/$(product_id)
+            targets:
+                - lt_products
+                - dlt-$(product_id)
+        po:
+            - p: voc:fourthProperty
+              o:
+                  value: $(property_4)
+                  targets:
+                      - lt_products-b
+                      - dlt-$(product_id)-b
+                      - dlt_productid-b
+                      - dlt_productid-4
+            - p: voc:fifthProperty
+              o:
+                  value: $(property_5)
+                  targets:
+                      - lt_products-b
+                      - dlt-$(product_id)-b
+                      - dlt_productid-5
+    tm_products1-other-ontology:
+        sources: ls_products1
+        s:
+            value: ex:manufacturer1/$(ProductID)
+            targets:
+                - lt_products-other-ontology
+        po:
+            - [a, voc2:Stuff]
+            - [voc2:propertyOne, $(Property1)]
+            - [voc2:propertyTwo, $(Property2)]
+            - [voc2:propertyThree, $(Property3)]
+    tm_products2-other-ontology:
+        sources: ls_products2
+        s:
+            value: ex:manufacturer1/$(product_id)
+            targets: lt_products-other-ontology
+        po:
+            - [voc2:propertyFour, $(property_4)]
+            - [voc2:propertyFive, $(property_5)]
+    tm_acl:
+        sources: ls_acl
+        s:
+            value: ex:selected-user-access
+            targets: dlt_acl-access-to
+        po:
+            - [a, acl:Authorization]
+            - [acl:agent, $(agent_webid)~iri]
+            - [acl:accessTo, http://localhost:3000/manufacturer1/$(access_to)~iri]
+            - [acl:mode, acl:Read]
+    tm_acl_owner:
+        sources: ls_acl
+        s:
+            value: ex:owner-access
+            targets: dlt_acl-access-to
+        po:
+            - [ a, acl:Authorization ]
+            - [ acl:agent, http://localhost:3000/manufacturer1/profile/card#me~iri ]
+            - [ acl:accessTo, http://localhost:3000/manufacturer1/$(access_to)~iri ]
+            - [ acl:mode, acl:Read ]
+            - [ acl:mode, acl:Write ]
+            - [ acl:mode, acl:Control ]

@@ -39,26 +39,6 @@
             "product_id": 10008,
             "property_4": "4_8",
             "property_5": "5_8"
-        },
-        {
-            "product_id": 10009,
-            "property_4": "4_9",
-            "property_5": "5_9"
-        },
-        {
-            "product_id": 10010,
-            "property_4": "4_10",
-            "property_5": "5_10"
-        },
-        {
-            "product_id": 10011,
-            "property_4": "4_11",
-            "property_5": "5_11"
-        },
-        {
-            "product_id": 10012,
-            "property_4": "4_12",
-            "property_5": "5_12"
         }
     ]
 }

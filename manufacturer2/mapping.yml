@@ -1,0 +1,73 @@
+prefixes:
+    acl: http://www.w3.org/ns/auth/acl#
+    formats: http://www.w3.org/ns/formats/
+    ex: http://example.com/
+    voc: http://example.com/voc/
+    voc2: http://example.com/voc2/
+base: http://knows.com/base/
+sources:
+    ls_articles:
+        access: ./data/articles.xml
+        referenceFormulation: xpath
+        iterator: "/articles/article"
+    ls_acl:
+        access: ./data/read_access.csv
+        referenceFormulation: csv
+targets:
+    #static targets
+    lt_articles:
+        type: directhttprequest
+        access: http://localhost:3000/manufacturer2/articles
+        serialization: turtle
+        authentication: auth
+# dynamic targets
+    dlt_acl-access-to:
+        source: ls_acl
+        type: linkedhttprequest
+        access: http://localhost:3000/manufacturer2/$(access_to)
+        rel: acl
+        serialization: turtle
+        authentication: auth
+authentications:
+    auth:
+        type: cssclientcredentials
+        email: hello@manufacturer2.com
+        password: abc123
+        oidcIssuer: http://localhost:3000/
+        webId: http://localhost:3000/manufacturer2/profile/card#me
+mappings:
+    tm_articles:
+        sources: ls_articles
+        s:
+            value: ex:manufacturer1/$(articlenumber)
+            targets:
+                - lt_articles
+        po:
+            - [a, voc:Product]
+            - [voc:firstProperty, $(propertyone)]
+            - [voc:secondProperty, $(propertytwo)]
+            - [voc:thirdProperty, $(propertythree)]
+            - [voc:fourthProperty, $(propertyfour)]
+            - [voc:fifthProperty, $(propertyfive)]
+    tm_acl:
+        sources: ls_acl
+        s:
+            value: ex:selected-user-access
+            targets: dlt_acl-access-to
+        po:
+            - [a, acl:Authorization]
+            - [acl:agentClass, $(agent_class)~iri]
+            - [acl:accessTo, http://localhost:3000/manufacturer2/$(access_to)~iri]
+            - [acl:mode, acl:Read]
+    tm_acl_owner:
+        sources: ls_acl
+        s:
+            value: ex:owner-access
+            targets: dlt_acl-access-to
+        po:
+            - [ a, acl:Authorization ]
+            - [ acl:agent, http://localhost:3000/manufacturer2/profile/card#me~iri ]
+            - [ acl:accessTo, http://localhost:3000/manufacturer2/$(access_to)~iri ]
+            - [ acl:mode, acl:Read ]
+            - [ acl:mode, acl:Write ]
+            - [ acl:mode, acl:Control ]
