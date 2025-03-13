@@ -1,5 +1,4 @@
-# Demonstrator 'Permissioned Data Sharing
-with Multiple Views'
+# Demonstrator 'Permissioned Data Sharing with Multiple Views'
 
 ## Introduction
 
