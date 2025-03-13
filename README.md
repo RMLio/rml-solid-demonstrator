@@ -1,8 +1,9 @@
-# Demonstrator 'Permissioned data sharing from existing source data'
+# Demonstrator 'Permissioned Data Sharing
+with Multiple Views'
 
 ## Introduction
 
-This demonstrator showcases the capabilities of the end-to-end pipeline presented in the paper 'Extending RML to Support Permissioned Data Sharing'. 
+This demonstrator showcases the capabilities of the end-to-end pipeline presented in the paper 'Extending RML to Support Permissioned Data Sharing with Multiple Views'. 
 
 The end-to-end pipeline takes heterogeneous data sources and an extended YARRRML mapping as input.   
 Following YARRRML extensions are included in the extended YARRRML mapping: 
