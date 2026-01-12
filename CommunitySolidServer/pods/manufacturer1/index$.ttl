@@ -1,0 +1,7 @@
+
+<http://example.com/index> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://localhost:3000/manufacturer1/index>,
+    <http://localhost:3000/manufacturer1/product-P101>, <http://localhost:3000/manufacturer1/product-P102>,
+    <http://localhost:3000/manufacturer1/product-P103>, <http://localhost:3000/manufacturer1/product-P104>,
+    <http://localhost:3000/manufacturer1/product-P105>, <http://localhost:3000/manufacturer1/product-P106>,
+    <http://localhost:3000/manufacturer1/product-P107>, <http://localhost:3000/manufacturer1/product-P108>,
+    <http://localhost:3000/manufacturer1/product-P109>, <http://localhost:3000/manufacturer1/products> .

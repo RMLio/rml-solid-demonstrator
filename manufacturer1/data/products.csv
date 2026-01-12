@@ -1,11 +1,10 @@
-﻿ProductID,ProductLabel,Property1,Property2,Property3
-10001,product A,1_1,2_1,3_1
-10002,product B,1_2,2_2,3_2
-10003,product C,1_3,2_3,3_3
-10004,product D,1_4,2_4,3_4
-10005,product E,1_5,2_5,3_5
-10006,product F,1_6,2_6,3_6
-10007,product G,1_7,2_7,3_7
-10008,product H,1_8,2_8,3_8
-10009,product I,1_9,2_9,3_9
-10010,product J,1_10,2_10,3_10
+productId,label,category,volume,percentageBenzene,percentageRecycled,originCountry,reachCompliant,recycledScore
+P101,GripTite Industrial Adhesive,Construction,750,0.016394,0.053752,Germany,No,F
+P102,StoneSeal Concrete Primer,Construction,2500,0.01275,0.083482,Germany,No,F
+P103,HardBond Structural Epoxy,Construction,1000,0.017365,0.151505,Germany,No,F
+P104,MaxTherm Engine Oil 10W30,Automotive,1000,0.007461,0.086086,South Korea,Yes,F
+P105,FuelClear System Cleaner,Automotive,350,0.00511,0.082086,South Korea,Yes,F
+P106,MetalShine Degreaser Pro,Automotive,500,0.004093,0.115375,South Korea,Yes,F
+P107,AeroClean Disinfectant Spray,Household,300,0.001053,0.175675,France,Yes,F
+P108,DeepClean Detergent Concentrate,Household,1200,0.0023,0.272584,France,Yes,A
+P109,SensoMist Air Freshener,Household,250,0.001441,0.284994,France,Yes,A

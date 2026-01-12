@@ -1,0 +1,101 @@
+[
+  {
+    "productId": "001",
+    "label": "GripTite Industrial Adhesive",
+    "category": "Construction",
+    "volume": 750.00,
+    "percentageBenzene": 0.014635,
+    "percentageRecycled": 0.177519,
+    "originCountry": "United States",
+    "reachCompliant": "No",
+    "recycledScore": "F"
+  },
+  {
+    "productId": "002",
+    "label": "StoneSeal Concrete Primer",
+    "category": "Construction",
+    "volume": 2500.00,
+    "percentageBenzene": 0.014894,
+    "percentageRecycled": 0.169697,
+    "originCountry": "United States",
+    "reachCompliant": "No",
+    "recycledScore": "F"
+  },
+  {
+    "productId": "003",
+    "label": "HardBond Structural Epoxy",
+    "category": "Construction",
+    "volume": 1000.00,
+    "percentageBenzene": 0.013637,
+    "percentageRecycled": 0.068707,
+    "originCountry": "United States",
+    "reachCompliant": "No",
+    "recycledScore": "F"
+  },
+  {
+    "productId": "004",
+    "label": "MaxTherm Engine Oil 10W30",
+    "category": "Automotive",
+    "volume": 1000.00,
+    "percentageBenzene": 0.007367,
+    "percentageRecycled": 0.123151,
+    "originCountry": "Italy",
+    "reachCompliant": "Yes",
+    "recycledScore": "F"
+  },
+  {
+    "productId": "005",
+    "label": "FuelClear System Cleaner",
+    "category": "Automotive",
+    "volume": 350.00,
+    "percentageBenzene": 0.006479,
+    "percentageRecycled": 0.118623,
+    "originCountry": "Italy",
+    "reachCompliant": "Yes",
+    "recycledScore": "F"
+  },
+  {
+    "productId": "006",
+    "label": "MetalShine Degreaser Pro",
+    "category": "Automotive",
+    "volume": 500.00,
+    "percentageBenzene": 0.006606,
+    "percentageRecycled": 0.122238,
+    "originCountry": "Italy",
+    "reachCompliant": "Yes",
+    "recycledScore": "F"
+  },
+  {
+    "productId": "007",
+    "label": "AeroClean Disinfectant Spray",
+    "category": "Household",
+    "volume": 300.00,
+    "percentageBenzene": 0.001636,
+    "percentageRecycled": 0.22378,
+    "originCountry": "Portugal",
+    "reachCompliant": "Yes",
+    "recycledScore": "A"
+  },
+  {
+    "productId": "008",
+    "label": "DeepClean Detergent Concentrate",
+    "category": "Household",
+    "volume": 1200.00,
+    "percentageBenzene": 0.00137,
+    "percentageRecycled": 0.205141,
+    "originCountry": "Portugal",
+    "reachCompliant": "Yes",
+    "recycledScore": "A"
+  },
+  {
+    "productId": "009",
+    "label": "SensoMist Air Freshener",
+    "category": "Household",
+    "volume": 250.00,
+    "percentageBenzene": 0.001267,
+    "percentageRecycled": 0.292399,
+    "originCountry": "Portugal",
+    "reachCompliant": "Yes",
+    "recycledScore": "A"
+  }
+]

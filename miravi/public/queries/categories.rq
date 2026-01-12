@@ -1,0 +1,8 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX voc: <http://example.com/voc/>
+
+SELECT DISTINCT ?Category
+WHERE {
+  ?Product voc:category ?Category.    
+}
+ORDER BY ?Category

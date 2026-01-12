@@ -70,7 +70,7 @@ To avoid any library conflicts, especially with Comunica, we start the Communtiy
 To start the Community Solid Server, run following command: 
 ```shell
 cd ./CommunitySolidServer
-docker run --rm -v $(pwd)/config:/config -v $(pwd)/pods:/pods -p 3000:3000 solidproject/community-server -c /config/file.json --seedConfig /config/seeded-pod-config.json -f /pods --name CSS
+docker run --name CSS --rm -v $(pwd)/config:/config -v $(pwd)/pods:/pods -p 3000:3000 solidproject/community-server -c /config/file.json --seedConfig /config/seeded-pod-config.json -f /pods 
 ```
 **Note for Windows users**: Using `$(pwd)` won't just work to get the "present working dir". Here are a few alternatives:
 - MinGW / git bash: use `/$(pwd)`
@@ -98,7 +98,7 @@ docker run --name CSS --rm -v $(pwd)/config:/config -v $(pwd)/pods:/pods -p 3000
 
 ### RMLMapper
 
-- Download [RMLMapper v7.3.1](https://github.com/RMLio/rmlmapper-java/releases/download/v7.3.1/rmlmapper-7.3.1-r374-all.jar) has `rmlmapper.jar` in this folder  
+- Download [RMLMapper v7.3.1](https://github.com/RMLio/rmlmapper-java/releases/download/v7.3.1/rmlmapper-7.3.1-r374-all.jar) as `rmlmapper.jar` in this folder  
 - In a new terminal execute the extended RML mapping of the three manufacturers (this may take some minutes).
 ````shell
 echo $(date)

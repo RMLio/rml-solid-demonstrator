@@ -1,0 +1,35 @@
+{
+  "title": "SOlidLab Demo",
+  "logoLocation": "images/IDLab-logo.png",
+  "logoRedirectURL": "https://idlab.technology/",
+  "queryFolder": "queries",
+  "showMilliseconds": false,
+  "defaultIDP": "http://localhost:3000/",
+  "introductionText": "Please log in as the appropriate actor and select a query from the menu on the left.",
+  "queries": [
+    {
+      "id": "101",
+      "queryLocation": "digital_product_passport.rq",
+      "name": "Digital Product Passport",
+      "sourcesIndex": {
+        "url": "http://localhost:3000/user9/index",
+        "queryLocation": "sourceQueries/seeAlso.rq"
+      }
+    },
+    {
+      "id": "102",
+      "queryGroupId": "constr",
+      "queryLocation": "product.rq",
+      "name": "Product details",
+      "sourcesIndex": {
+        "url": "http://localhost:3000/user9/index",
+        "queryLocation": "sourceQueries/seeAlso.rq"
+      },
+      "indirectVariables": {
+        "queryLocations": [
+          "categories.rq"
+        ]
+      }
+    }
+  ]
+}
