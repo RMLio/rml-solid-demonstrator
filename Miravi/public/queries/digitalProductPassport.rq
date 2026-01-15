@@ -1,0 +1,16 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ex: <http://example.com/>
+PREFIX voc: <http://example.com/voc/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?product ?category ?REACH ?recycled ?manufacturer
+WHERE {
+        ?ProductID a voc:Product ;
+            rdfs:label ?product ; 
+            voc:category ?category ;
+            voc:reachCompliant ?REACH ; 
+            voc:recycledScore ?recycled ; 
+            voc:manufacturer ?manufacturerID.
+        ?manufacturerID rdfs:label ?manufacturer.    
+ }
+ORDER BY ?product

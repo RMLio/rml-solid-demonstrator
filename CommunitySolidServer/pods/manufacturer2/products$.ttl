@@ -1,54 +1,66 @@
 
 <http://example.com/manufacturer2/A001> a <http://example.com/voc/Product>;
-  <http://example.com/voc/category> "Automotive";
+  <http://example.com/voc/category> "Concrete Primer";
+  <http://example.com/voc/manufacturer> <http://localhost:3000/manufacturer2/profile/card#me>;
   <http://example.com/voc/reachCompliant> false;
   <http://example.com/voc/recycledScore> "F";
-  <http://www.w3.org/2000/01/rdf-schema#label> "MaxTherm Engine Oil 10W30" .
+  <http://www.w3.org/2000/01/rdf-schema#label> "PrimeGuard" .
 
 <http://example.com/manufacturer2/A002> a <http://example.com/voc/Product>;
-  <http://example.com/voc/category> "Automotive";
+  <http://example.com/voc/category> "Concrete Primer";
+  <http://example.com/voc/manufacturer> <http://localhost:3000/manufacturer2/profile/card#me>;
   <http://example.com/voc/reachCompliant> false;
   <http://example.com/voc/recycledScore> "F";
-  <http://www.w3.org/2000/01/rdf-schema#label> "FuelClear System Cleaner" .
+  <http://www.w3.org/2000/01/rdf-schema#label> "BaseCoat" .
 
 <http://example.com/manufacturer2/A003> a <http://example.com/voc/Product>;
-  <http://example.com/voc/category> "Automotive";
+  <http://example.com/voc/category> "Concrete Primer";
+  <http://example.com/voc/manufacturer> <http://localhost:3000/manufacturer2/profile/card#me>;
   <http://example.com/voc/reachCompliant> false;
   <http://example.com/voc/recycledScore> "F";
-  <http://www.w3.org/2000/01/rdf-schema#label> "MetalShine Degreaser Pro" .
+  <http://www.w3.org/2000/01/rdf-schema#label> "GripPrimer" .
 
 <http://example.com/manufacturer2/C001> a <http://example.com/voc/Product>;
-  <http://example.com/voc/category> "Construction";
+  <http://example.com/voc/category> "Industrial Adhesive";
+  <http://example.com/voc/manufacturer> <http://localhost:3000/manufacturer2/profile/card#me>;
   <http://example.com/voc/reachCompliant> false;
   <http://example.com/voc/recycledScore> "F";
-  <http://www.w3.org/2000/01/rdf-schema#label> "GripTite Industrial Adhesive" .
+  <http://www.w3.org/2000/01/rdf-schema#label> "BondMaster" .
 
 <http://example.com/manufacturer2/C002> a <http://example.com/voc/Product>;
-  <http://example.com/voc/category> "Construction";
+  <http://example.com/voc/category> "Industrial Adhesive";
+  <http://example.com/voc/manufacturer> <http://localhost:3000/manufacturer2/profile/card#me>;
   <http://example.com/voc/reachCompliant> false;
   <http://example.com/voc/recycledScore> "A";
-  <http://www.w3.org/2000/01/rdf-schema#label> "StoneSeal Concrete Primer" .
+  <http://www.w3.org/2000/01/rdf-schema#label> "FixPro" .
 
 <http://example.com/manufacturer2/C003> a <http://example.com/voc/Product>;
-  <http://example.com/voc/category> "Construction";
+  <http://example.com/voc/category> "Industrial Adhesive";
+  <http://example.com/voc/manufacturer> <http://localhost:3000/manufacturer2/profile/card#me>;
   <http://example.com/voc/reachCompliant> true;
   <http://example.com/voc/recycledScore> "F";
-  <http://www.w3.org/2000/01/rdf-schema#label> "HardBond Structural Epoxy" .
+  <http://www.w3.org/2000/01/rdf-schema#label> "GripSeal" .
 
 <http://example.com/manufacturer2/H001> a <http://example.com/voc/Product>;
-  <http://example.com/voc/category> "Household";
+  <http://example.com/voc/category> "Structural Epoxy";
+  <http://example.com/voc/manufacturer> <http://localhost:3000/manufacturer2/profile/card#me>;
   <http://example.com/voc/reachCompliant> true;
   <http://example.com/voc/recycledScore> "A";
-  <http://www.w3.org/2000/01/rdf-schema#label> "AeroClean Disinfectant Spray" .
+  <http://www.w3.org/2000/01/rdf-schema#label> "EpoxyShield" .
 
 <http://example.com/manufacturer2/H002> a <http://example.com/voc/Product>;
-  <http://example.com/voc/category> "Household";
+  <http://example.com/voc/category> "Structural Epoxy";
+  <http://example.com/voc/manufacturer> <http://localhost:3000/manufacturer2/profile/card#me>;
   <http://example.com/voc/reachCompliant> true;
   <http://example.com/voc/recycledScore> "A";
-  <http://www.w3.org/2000/01/rdf-schema#label> "DeepClean Detergent Concentrate" .
+  <http://www.w3.org/2000/01/rdf-schema#label> "StructoBond" .
 
 <http://example.com/manufacturer2/H003> a <http://example.com/voc/Product>;
-  <http://example.com/voc/category> "Household";
+  <http://example.com/voc/category> "Structural Epoxy";
+  <http://example.com/voc/manufacturer> <http://localhost:3000/manufacturer2/profile/card#me>;
   <http://example.com/voc/reachCompliant> true;
   <http://example.com/voc/recycledScore> "A";
-  <http://www.w3.org/2000/01/rdf-schema#label> "SensoMist Air Freshener" .
+  <http://www.w3.org/2000/01/rdf-schema#label> "MegaGrip" .
+
+<http://localhost:3000/manufacturer2/profile/card#me> a <http://example.com/voc/Manufacturer>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "Alvion" .

@@ -1,10 +1,11 @@
 
 <http://example.com/manufacturer1/P101> a <http://example.com/voc/Product>;
-  <http://example.com/voc/category> "Construction";
+  <http://example.com/voc/category> "Industrial Adhesive";
+  <http://example.com/voc/manufacturer> <http://localhost:3000/manufacturer1/profile/card#me>;
   <http://example.com/voc/originCountry> "Germany";
-  <http://example.com/voc/percentageBenzene> 0.016394;
-  <http://example.com/voc/percentageRecycled> 0.053752;
+  <http://example.com/voc/percentageBenzene> 1.6394;
+  <http://example.com/voc/percentageRecycled> 5.3752;
   <http://example.com/voc/reachCompliant> false;
   <http://example.com/voc/recycledScore> "F";
   <http://example.com/voc/volumeML> 750.0;
-  <http://www.w3.org/2000/01/rdf-schema#label> "GripTite Industrial Adhesive" .
+  <http://www.w3.org/2000/01/rdf-schema#label> "Benzofix" .

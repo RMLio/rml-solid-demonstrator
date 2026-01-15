@@ -1,0 +1,101 @@
+[
+  {
+    "productId": "001",
+    "label": "AdhezoMax",
+    "category": "Industrial Adhesive",
+    "volume": 750.00,
+    "percentageBenzene": 1.4635,
+    "percentageRecycled": 17.7519,
+    "originCountry": "United States",
+    "reachCompliant": "No",
+    "recycledScore": "F"
+  },
+  {
+    "productId": "002",
+    "label": "PolyBond",
+    "category": "Industrial Adhesive",
+    "volume": 2500.00,
+    "percentageBenzene": 0.014894,
+    "percentageRecycled": 0.169697,
+    "originCountry": "United States",
+    "reachCompliant": "No",
+    "recycledScore": "F"
+  },
+  {
+    "productId": "003",
+    "label": "ChemGrip",
+    "category": "Industrial Adhesive",
+    "volume": 1000.00,
+    "percentageBenzene": 0.013637,
+    "percentageRecycled": 0.068707,
+    "originCountry": "United States",
+    "reachCompliant": "No",
+    "recycledScore": "F"
+  },
+  {
+    "productId": "004",
+    "label": "GripPrime",
+    "category": "Concrete Primer",
+    "volume": 1000.00,
+    "percentageBenzene": 0.7367,
+    "percentageRecycled": 12.3151,
+    "originCountry": "Italy",
+    "reachCompliant": "Yes",
+    "recycledScore": "F"
+  },
+  {
+    "productId": "005",
+    "label": "SealBase",
+    "category": "Concrete Primer",
+    "volume": 350.00,
+    "percentageBenzene": 0.6479,
+    "percentageRecycled": 11.8623,
+    "originCountry": "Italy",
+    "reachCompliant": "Yes",
+    "recycledScore": "F"
+  },
+  {
+    "productId": "006",
+    "label": "Benzoprime Ultra",
+    "category": "Concrete Primer",
+    "volume": 500.00,
+    "percentageBenzene": 0.6606,
+    "percentageRecycled": 12.2238,
+    "originCountry": "Italy",
+    "reachCompliant": "Yes",
+    "recycledScore": "F"
+  },
+  {
+    "productId": "007",
+    "label": "Resinforce",
+    "category": "Structural Epoxy",
+    "volume": 300.00,
+    "percentageBenzene": 0.1636,
+    "percentageRecycled": 22.378,
+    "originCountry": "Portugal",
+    "reachCompliant": "Yes",
+    "recycledScore": "A"
+  },
+  {
+    "productId": "008",
+    "label": "ChemLock",
+    "category": "Structural Epoxy",
+    "volume": 1200.00,
+    "percentageBenzene": 0.137,
+    "percentageRecycled": 20.5141,
+    "originCountry": "Portugal",
+    "reachCompliant": "Yes",
+    "recycledScore": "A"
+  },
+  {
+    "productId": "009",
+    "label": "Benzoforce Pro",
+    "category": "Structural Epoxy",
+    "volume": 250.00,
+    "percentageBenzene": 0.1267,
+    "percentageRecycled": 29.2399,
+    "originCountry": "Portugal",
+    "reachCompliant": "Yes",
+    "recycledScore": "A"
+  }
+]

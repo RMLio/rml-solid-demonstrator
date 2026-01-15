@@ -1,10 +1,11 @@
 
 <http://example.com/manufacturer1/P102> a <http://example.com/voc/Product>;
-  <http://example.com/voc/category> "Construction";
+  <http://example.com/voc/category> "Industrial Adhesive";
+  <http://example.com/voc/manufacturer> <http://localhost:3000/manufacturer1/profile/card#me>;
   <http://example.com/voc/originCountry> "Germany";
-  <http://example.com/voc/percentageBenzene> 0.01275;
-  <http://example.com/voc/percentageRecycled> 0.083482;
+  <http://example.com/voc/percentageBenzene> 1.275;
+  <http://example.com/voc/percentageRecycled> 8.3482;
   <http://example.com/voc/reachCompliant> false;
   <http://example.com/voc/recycledScore> "F";
   <http://example.com/voc/volumeML> 2500.0;
-  <http://www.w3.org/2000/01/rdf-schema#label> "StoneSeal Concrete Primer" .
+  <http://www.w3.org/2000/01/rdf-schema#label> "StickTite" .

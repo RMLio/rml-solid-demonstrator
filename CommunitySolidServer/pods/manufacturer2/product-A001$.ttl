@@ -1,10 +1,11 @@
 
 <http://example.com/manufacturer2/A001> a <http://example.com/voc/Product>;
-  <http://example.com/voc/category> "Automotive";
+  <http://example.com/voc/category> "Concrete Primer";
+  <http://example.com/voc/manufacturer> <http://localhost:3000/manufacturer2/profile/card#me>;
   <http://example.com/voc/originCountry> "Japan";
-  <http://example.com/voc/percentageBenzene> 0.017658;
-  <http://example.com/voc/percentageRecycled> 0.133659;
+  <http://example.com/voc/percentageBenzene> 1.7658;
+  <http://example.com/voc/percentageRecycled> 13.3659;
   <http://example.com/voc/reachCompliant> false;
   <http://example.com/voc/recycledScore> "F";
   <http://example.com/voc/volumeML> 1000.0;
-  <http://www.w3.org/2000/01/rdf-schema#label> "MaxTherm Engine Oil 10W30" .
+  <http://www.w3.org/2000/01/rdf-schema#label> "PrimeGuard" .

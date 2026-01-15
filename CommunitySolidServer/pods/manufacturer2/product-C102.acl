@@ -1,5 +1,0 @@
-
-<http://example.com/acl_6> a <http://www.w3.org/ns/auth/acl#Authorization>;
-  <http://www.w3.org/ns/auth/acl#accessTo> <http://localhost:3000/manufacturer2/product-C102>;
-  <http://www.w3.org/ns/auth/acl#agent> <http://localhost:3000/user1/profile/card#me>;
-  <http://www.w3.org/ns/auth/acl#mode> <http://www.w3.org/ns/auth/acl#Read> .

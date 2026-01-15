@@ -1,10 +1,11 @@
 
 <http://example.com/manufacturer1/P105> a <http://example.com/voc/Product>;
-  <http://example.com/voc/category> "Automotive";
+  <http://example.com/voc/category> "Concrete Primer";
+  <http://example.com/voc/manufacturer> <http://localhost:3000/manufacturer1/profile/card#me>;
   <http://example.com/voc/originCountry> "South Korea";
-  <http://example.com/voc/percentageBenzene> 0.00511;
-  <http://example.com/voc/percentageRecycled> 0.082086;
+  <http://example.com/voc/percentageBenzene> 0.511;
+  <http://example.com/voc/percentageRecycled> 8.2086;
   <http://example.com/voc/reachCompliant> true;
   <http://example.com/voc/recycledScore> "F";
   <http://example.com/voc/volumeML> 350.0;
-  <http://www.w3.org/2000/01/rdf-schema#label> "FuelClear System Cleaner" .
+  <http://www.w3.org/2000/01/rdf-schema#label> "PrimeFix" .

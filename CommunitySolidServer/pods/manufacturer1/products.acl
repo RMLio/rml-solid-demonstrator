@@ -1,5 +1,5 @@
 
-<http://example.com/acl_2> a <http://www.w3.org/ns/auth/acl#Authorization>;
+<http://example.com/acl_3> a <http://www.w3.org/ns/auth/acl#Authorization>;
   <http://www.w3.org/ns/auth/acl#accessTo> <http://localhost:3000/manufacturer1/products>;
   <http://www.w3.org/ns/auth/acl#agentClass> <http://xmlns.com/foaf/0.1/Agent>;
   <http://www.w3.org/ns/auth/acl#mode> <http://www.w3.org/ns/auth/acl#Read> .

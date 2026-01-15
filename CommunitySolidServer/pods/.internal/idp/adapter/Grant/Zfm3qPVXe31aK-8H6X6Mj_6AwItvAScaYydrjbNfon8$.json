@@ -1,0 +1,1 @@
+{"key":"idp/adapter/Grant/Zfm3qPVXe31aK-8H6X6Mj_6AwItvAScaYydrjbNfon8","payload":{"expires":"2026-01-27T16:11:13.442Z","payload":{"iat":1768320673,"exp":1769530273,"accountId":"http://localhost:3000/user1/profile/card#me","clientId":"lWy_xQG9y7cOLW9lui3Vq","kind":"Grant","jti":"Zfm3qPVXe31aK-8H6X6Mj_6AwItvAScaYydrjbNfon8","openid":{"scope":"openid offline_access webid"}}}}

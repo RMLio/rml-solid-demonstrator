@@ -1,8 +1,8 @@
-# Demonstrator 'Permissioned Data Sharing with Multiple Views'
+# Demonstrator for SolidLab End Event 19/01/2026
 
 ## Introduction
 
-This demonstrator showcases the capabilities of the end-to-end pipeline presented in the paper 'Extending RML to Support Permissioned Data Sharing with Multiple Views'. 
+This demonstrator illustrates the capabilities of the end-to-end pipeline presented in the paper 'Extending RML to Support Permissioned Data Sharing with Multiple Views' with the concept of a Digital Product Passport. 
 
 The end-to-end pipeline takes heterogeneous data sources and an extended YARRRML mapping as input.   
 Following YARRRML extensions are included in the extended YARRRML mapping: 
@@ -25,25 +25,15 @@ The extended RML mapping defines logical targets for resources on a Solid pod ho
 
 ## Conceptual Setup
 
-The demonstrator simulates how three manufacturers share their data with ten users, each with distinct access rights to the manufacturers' data.   
-Per manufacturer, we created  
-(i) source data about products and their properties: 
-[./manufacturer1/data/](./manufacturer1/data/),
-[./manufacturer2/data/](./manufacturer2/data/), and
-[./manufacturer3/data/](./manufacturer3/data/);     
-(ii) a CSV file to manage the access control: 
-[./manufacturer1/data/read_access.csv](./manufacturer1/data/read_access.csv),
-[./manufacturer2/data/read_access.csv](./manufacturer2/data/read_access.csv), and
-[./manufacturer3/data/read_access.csv](./manufacturer3/data/read_access.csv);   
-(iii) an extended YARRRML mapping: 
-[./manufacturer1/mapping.yml](./manufacturer1/mapping.yml),
-[./manufacturer2/mapping.yml](./manufacturer2/mapping.yml) and
-[./manufacturer3/mapping.yml](./manufacturer3/mapping.yml);  
-and (iv) and a Solid pod hosted on a Solid Community Server: [./CommunitySolidServer/pods/manufacturer1/](./CommunitySolidServer/pods/manufacturer1/),
-[./CommunitySolidServer/pods/manufacturer2/](./CommunitySolidServer/pods/manufacturer2/), and
-[./CommunitySolidServer/pods/manufacturer3/](./CommunitySolidServer/pods/manufacturer3/),
+The demonstrator simulates how three manufacturers share their data with users, each with distinct access rights to the manufacturers' data.   
+Per manufacturer, we created in [./SourceData/](./SourceData) 
+(i) source data about products and their properties, 
+(ii) a CSV file to manage the access control,
+(iii) a CSV file with basic company details  
+(iii) an extended YARRRML mapping
+and in [./CommunitySolidServer/pods/](./CommunitySolidServer/pods/) (iv) a Solid pod.
 
-For the users, who get read access to selected parts of the manufacturers' data, we created ten additional Solid pods:
+For the users, who get read access to selected parts of the manufacturers' data, we created additional Solid pods:
 [./CommunitySolidServer/pods/userX/](./CommunitySolidServer/pods/)
 .
 
@@ -98,178 +88,25 @@ docker run --name CSS --rm -v $(pwd)/config:/config -v $(pwd)/pods:/pods -p 3000
 
 ### RMLMapper
 
-- Download [RMLMapper v7.3.1](https://github.com/RMLio/rmlmapper-java/releases/download/v7.3.1/rmlmapper-7.3.1-r374-all.jar) as `rmlmapper.jar` in this folder  
+- Download [RMLMapper v8.1.0](https://github.com/RMLio/rmlmapper-java/releases/download/v8.1.0/rmlmapper-8.1.0-r380-all.jar) as `rmlmapper.jar` in the folder [./SourceData](./SourceData). 
 - In a new terminal execute the extended RML mapping of the three manufacturers (this may take some minutes).
 ````shell
-echo $(date)
-cd ./manufacturer1
-echo 'Executing mapping manufacturer1...'
-docker run --rm -it -v $(pwd)/:/data rmlio/yarrrml-parser:1.10.0 -i /data/mapping.yml -o /data/generated-mapping.rml.ttl
-java -jar ../rmlmapper.jar -m generated-mapping.rml.ttl -d
-cd ../manufacturer2
-echo 'Executing mapping manufacturer2...'
-docker run --rm -it -v $(pwd)/:/data rmlio/yarrrml-parser:1.10.0 -i /data/mapping.yml -o /data/generated-mapping.rml.ttl
-java -jar ../rmlmapper.jar -m generated-mapping.rml.ttl -d
-cd ../manufacturer3
-echo 'Executing mapping manufacturer3...'
-docker run --rm -it -v $(pwd)/:/data rmlio/yarrrml-parser:1.10.0 -i /data/mapping.yml -o /data/generated-mapping.rml.ttl
-java -jar ../rmlmapper.jar -m generated-mapping.rml.ttl -d
-echo $(date)
+cd ./SourceData
+chmod 744 ./executeMappings.sh # needed only at first use
+./executeMappings.sh
 ````
 
-The commands for Windows users with Powershell: 
-
-````shell
-echo $(date)
-cd ./manufacturer1
-echo 'Executing mapping manufacturer1...'
-docker run --rm -it -v ${PWD}/:/data rmlio/yarrrml-parser:1.10.0 -i /data/mapping.yml -o /data/generated-mapping.rml.ttl
-java -jar ../rmlmapper.jar -m generated-mapping.rml.ttl -d
-cd ../manufacturer2
-echo 'Executing mapping manufacturer2...'
-docker run --rm -it -v ${PWD}/:/data rmlio/yarrrml-parser:1.10.0 -i /data/mapping.yml -o /data/generated-mapping.rml.ttl
-java -jar ../rmlmapper.jar -m generated-mapping.rml.ttl -d
-cd ../manufacturer3
-echo 'Executing mapping manufacturer3...'
-docker run --rm -it -v ${PWD}/:/data rmlio/yarrrml-parser:1.10.0 -i /data/mapping.yml -o /data/generated-mapping.rml.ttl
-java -jar ../rmlmapper.jar -m generated-mapping.rml.ttl -d
-echo $(date)
-````
+(For Windows users with Powershell replace `$(pwd)` by `${PWD}` in the bash script)
 
 The content of the Solid pods after the executing of the RML+Solid pipeline can be inspected easily in the backend of the Community Solid Server: [./CommunitySolidServer/pods/manufacturer1](./CommunitySolidServer/pods/manufacturer1),
 [./CommunitySolidServer/pods/manufacturer2](./CommunitySolidServer/pods/manufacturer2), and
 [./CommunitySolidServer/pods/manufacturer3](./CommunitySolidServer/pods/manufacturer3). 
 
-### CSS-Getter
+### Miravi
 
-The content of Solid resources can be accessed with standardized HTTP GET requests.
-However, to access permissioned resources (i.e. resources without public access), authentication is needed before execution the HTTP request.   
-For this demonstrator, we provide a JavaScript application, [.CSS-Getter](./CSS-Getter), facilitating the execution of authenticated HTTP GET requests to a Community Solid Server.   
+The content of the Solid pods can be presented to end users in a data dashboard generated with [Miravi](https://github.com/SolidLabResearch/miravi-a-linked-data-viewer).
+The config files for the data dashboard are stored in the folder [./Miravi](./Miravi).  
 
-To install the dependencies for this application run:
-````shell
-cd ./CSS-Getter
-npm i
-````
+![Miravi/screencast/screencast.gif](Miravi/screencast/screencast.gif)
 
-## MAPPING TO FUNCTIONAL REQUIREMENTS
-
-### 1. Semantic interoperability [R1]
-
-RML secures the semantic interoperability,
-mapping the source data to any RDF ontology to secure a common understanding of the data.
-
-#### 1.1. Different sources mapped to the same ontology
-Manufacturer1 maps source files [./manufacturer1/products.csv](manufacturer1/data/products.csv) and [./manufacturer1/products2.json](manufacturer1/data/products2.json) to resource [http://localhost:3000/manufacturer1/products](CommunitySolidServer/pods/manufacturer1/products$.ttl).  
-Manufacturer2 maps source file [./manufacturer2/articles.xml](manufacturer2/data/articles.xml) to resource [http://localhost:3000/manufacturer2/articles](CommunitySolidServer/pods/manufacturer2/articles$.ttl).  
-Manufacturer3 maps source files [./manufacturer3/products.csv](manufacturer3/data/products.csv) and [./manufacturer3/products2.json](manufacturer3/data/products2.json) to resource[http://localhost:3000/manufacturer3/products](CommunitySolidServer/pods/manufacturer3/products$.ttl).
-Three manufacturers map their source data to the same ontology, i.e. they used the same RDF terms to express the concepts and properties.  
-
-#### 1.2. Same sources mapped to two ontologies
-
-Manufacturer1 and Manufacturer3 maps their source data additionally to another ontology:
-[products-other-ontology](CommunitySolidServer/pods/manufacturer1/products-other-ontology$.ttl) and
-[products-other-ontology](CommunitySolidServer/pods/manufacturer3/products-other-ontology$.ttl).
-
-### 2. Technical interoperability: Read access [R3] 
-
-A Solid resource can be accessed with a HTTP requests. 
-Below example shows how a resource with public read access can be accessed. 
-````shell
-curl -H "Accept: application/n-triples" "http://localhost:3000/manufacturer2/articles"
-````
-When the access to a resources is restricted to selected users, an authenticated HTTP GET request is needed.   
-
-Each manufacturer has access read access to all his resources. 
-````shell
-node ./CSS-Getter/getResource.js email=hello@manufacturer1.com password=abc123 webId=http://localhost:3000/manufacturer1/profile/card#me oidcIssuer=http://localhost:3000/ absoluteURI=http://localhost:3000/manufacturer1/products  
-````
-````shell
-node ./CSS-Getter/getResource.js email=hello@manufacturer1.com password=abc123 webId=http://localhost:3000/manufacturer1/profile/card#me oidcIssuer=http://localhost:3000/ absoluteURI=http://localhost:3000/manufacturer1/products-a  
-````
-
-Other users have access to selected resources, e.g. user1 has read access to http://localhost:3000/manufacturer1/product-10001
-````shell
-node ./CSS-Getter/getResource.js email=hello@user1.com password=abc123 webId=http://localhost:3000/user1/profile/card#me oidcIssuer=http://localhost:3000/ absoluteURI=http://localhost:3000/manufacturer1/product-10001 
-````
-
-````shell
-node ./CSS-Getter/getResource.js email=hello@user4.com password=abc123 webId=http://localhost:3000/user4/profile/card#me oidcIssuer=http://localhost:3000/ absoluteURI=http://localhost:3000/manufacturer1/product-10001-1 
-````
-
-### 3. Access Control [R3]
-
-The manufacturers keep an overview of the access rights to the resources on their Solid pods in a locally stored CSV file, e.g. [./manufacturer1/data/read_access.csv](manufacturer1/data/read_access.csv)
-RML maps these data of CSV files to [Access Control List (ACL) rules](https://solidproject.org/TR/wac).
-[Linked HTTP requests](https://rml.io/specs/access/httprequest/#LinkedHttpRequest) allow RML to published these ACL rules as an ACL resource on the manufacturer's Solid pod, linked to the resource to which they apply, e.g. [http://localhost:3000/manufacturer1//product-10002.acl](CommunitySolidServer/pods/manufacturer1/product-10002.acl)
-
-The manufacturers manage the read access to the resources on their Solid pods via a locally stored csv file ([./manufacturer1/read_access.csv](manufacturer1/data/read_access.csv) and [./manufacturer2/read_access.csv](manufacturer2/data/read_access.csv)). This data is mapped to ACL files, and linked to the relevant resources in their Solid pods.
-
-Only users with *read access rights* can retrieve the content of a resource.   
-**User1** has *read access* to `http://localhost:3000/manufacturer1/product-10002`
-````shell
-node ./CSS-Getter/getResource.js email=hello@user1.com password=abc123 webId=http://localhost:3000/user1/profile/card#me oidcIssuer=http://localhost:3000/ absoluteURI=http://localhost:3000/manufacturer1/product-10002 
-````
-**User2** has *no access* to `http://localhost:3000/manufacturer1/product-10002`
-````shell
-node ./CSS-Getter/getResource.js email=hello@user2.com password=abc123 webId=http://localhost:3000/user2/profile/card#me oidcIssuer=http://localhost:3000/ absoluteURI=http://localhost:3000/manufacturer1/product-10002 
-````
-
-### 4. Flexible design [R4]
-
-#### 4.1. Any granularity
-
-The data can be exposed in any granularity. We included following five examples in our setup:
-1. one resource including all properties of all products, e.g. [http://localhost:3000/manufacturer1/products](CommunitySolidServer/pods/manufacturer1/products$.ttl)
-2. two resources, dividing the information of all products based on two categories of product properties, e.g. [http://localhost:3000/manufacturer1/products-a](CommunitySolidServer/pods/manufacturer1/products-a$.ttl)
-3. one resource per product, including all properties of that product, e.g. [http://localhost:3000/manufacturer1/product-10001](CommunitySolidServer/pods/manufacturer1/product-10001$.ttl)
-4. two resources per product, dividing the product information  based on two categories of product properties, e.g. [http://localhost:3000/manufacturer1/product-10001-a](CommunitySolidServer/pods/manufacturer1/product-10001-a$.ttl)
-5. one resource per property per product  [http://localhost:3000/manufacturer1/product-10001-1](CommunitySolidServer/pods/manufacturer1/product-10001-1$.ttl)
-
-#### 4.2. Overlapping views
-Our demo includes examples of overlapping views:
-- [http://localhost:3000/manufacturer1/products](CommunitySolidServer/pods/manufacturer1/products$.ttl);
-- [http://localhost:3000/manufacturer1/product-10001](CommunitySolidServer/pods/manufacturer1/product-10001$.ttl);
-- [http://localhost:3000/manufacturer1/product-10001-1](CommunitySolidServer/pods/manufacturer1/product-10001-1$.ttl).
-
-#### 4.3. Disjoint views
-Our demo includes examples of disjoint views:
-- [http://localhost:3000/manufacturer1/products-a](CommunitySolidServer/pods/manufacturer1/products-a$.ttl) versus [http://localhost:3000/manufacturer1/products-b](CommunitySolidServer/pods/manufacturer1/products-b$.ttl);
-- [http://localhost:3000/manufacturer1/product-10001](CommunitySolidServer/pods/manufacturer1/product-10001$.ttl) versus [http://localhost:3000/manufacturer1/product-10002](CommunitySolidServer/pods/manufacturer1/product-10002$.ttl);
-- [http://localhost:3000/manufacturer1/product-10001-1](CommunitySolidServer/pods/manufacturer1/product-10001-1$.ttl) versus [http://localhost:3000/manufacturer1/product-10001-2](CommunitySolidServer/pods/manufacturer1/product-10001-2$.ttl).
-
-### 5. Heterogeneous data sources [R5] 
-
-RML handles heterogeneous source data, with logical sources to describe the access to the sources, and expressions to extract the values from the sources.
-
-The source data of manufacturer1 and of manufacturer 3 is spread over two files, with heterogeneous file formats ([./manufacturer1/products.csv](manufacturer1/data/products.csv) and [./manufacturer1/products2.json](manufacturer1/data/products2.json), [./manufacturer3/products.csv](manufacturer3/data/products.csv) and [./manufacturer3/products2.json](manufacturer3/data/products2.json)) with heterogeneous labels (e.g. ProductID and product_id).
-
-Manufacturer2 has one source file ([./manufacturer2/articles.xml](manufacturer2/data/articles.xml)) with his own labels (e.g. articlenumber).
-
-### 6. Automated Generation [R6]
-
-Once the RML mapping is created, the RML+Solid pipeline generates the RDF data and the corresponding resources on the manufacturer's Solid pod with one command: `java -jar [path-to-rmlmapper.jar] -m [path-to-rmlmapping] -d`. 
-Updates in the source data are handled with a new pipeline run.
-
-### 7. Reusable Design [R7]
-
-In our demonstrator the [third manufacturer](./manufacturer3) has organized his source data in a similar way as the [first manufacturer](./manufacturer1).
-He reuses the RML mapping of the first manufacturer, updating it only with the base URI of his Solid pod, i.e. and with his authentication info. 
-
-
-## Comparison with the state of the art
-
-|                                                | **Morph-LDP**      | **LDP-DL**         | **RML+SOLID** |
-|------------------------------------------------|--------------------|--------------------|---------------|
-| **R1 Semantic interoperability**               | &check; | &check;            | &check;       |
-| **R2 Technical interoperability: read access** |  &check;                  | &check;            | &check;       |
-| **R3 Access control**                          |                    |                    | &check;       |
-| **R4 Flexible design**                         |                    | &check;            | &check;       |
-| **R5 Heterogeneous data sources**              |                    | &check;            |  &check;             |
-| **R6 Automated generation**                    | &check;                   |  &check;                  |&check;               |
-| R7 Reusable design                             |  &check;                  | &check;                   |&check;               |
-| R8 On-the-fly-generation                       | &check;                   | &check;                   |               |
-| R9 Technical interoperability: write access    |       &check;             |                    |               |
-
-
-
+Note: For the screencast, we have added a `foaf:name` to the profile cards of user1 and user2, via [https://penny.vincenttunru.com/](https://penny.vincenttunru.com/). 

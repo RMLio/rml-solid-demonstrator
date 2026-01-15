@@ -1,0 +1,36 @@
+{
+  "title": "SolidLab: Importing Existing Data into Solid",
+  "logoLocation": "images/IDLab-logo.png",
+  "logoRedirectURL": "https://idlab.technology/",
+  "queryFolder": "queries",
+  "showMilliseconds": false,
+  "defaultIDP": "http://localhost:3000/",
+  "introductionText": "This demonstrator shows how to use RML and Solid to achieve decentralized data sharing in a Digital Product Passport use case, relying on existing data management systems. Click on the left to load an exemplary dashboard!",
+  "queryGroups": [],
+  "queries": [
+    {
+      "id": "101",
+      "queryLocation": "digitalProductPassport.rq",
+      "name": "Digital Product Passport",
+      "sourcesIndex": {
+        "url": "http://localhost:3000/admin/index",
+        "queryLocation": "sourceQueries/seeAlso.rq"
+      }
+    },
+    {
+      "id": "102",
+      "queryGroupId": "constr",
+      "queryLocation": "product.rq",
+      "name": "Product Details",
+      "sourcesIndex": {
+        "url": "http://localhost:3000/admin/index",
+        "queryLocation": "sourceQueries/seeAlso.rq"
+      },
+      "indirectVariables": {
+        "queryLocations": [
+          "categories.rq"
+        ]
+      }
+    }
+  ]
+}

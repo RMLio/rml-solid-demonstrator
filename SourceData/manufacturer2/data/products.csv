@@ -1,0 +1,10 @@
+productId,label,category,volume,percentageBenzene,percentageRecycled,originCountry,reachCompliant,recycledScore
+C001,BondMaster,Industrial Adhesive,750,1.0475,10.1625,Belgium,No,F
+C002,FixPro,Industrial Adhesive,250,1.0447,27.4535,Belgium,No,A
+C003,GripSeal,Industrial Adhesive,1000,0.6722,13.887,Belgium,Yes,F
+A001,PrimeGuard,Concrete Primer,1000,1.7658,13.3659,Japan,No,F
+A002,BaseCoat,Concrete Primer,350,1.0742,10.9672,Japan,No,F
+A003,GripPrimer,Concrete Primer,500,1.678,16.0373,Japan,No,F
+H001,EpoxyShield,Structural Epoxy,300,0.1269,44.5946,Netherlands,Yes,A
+H002,StructoBond,Structural Epoxy,1200,0.0943,49.4623,Netherlands,Yes,A
+H003,MegaGrip,Structural Epoxy,250,0.0754,41.0408,Netherlands,Yes,A

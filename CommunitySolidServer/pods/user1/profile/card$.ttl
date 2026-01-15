@@ -9,4 +9,5 @@
 <http://localhost:3000/user1/profile/card#me>
     
     solid:oidcIssuer <http://localhost:3000/>;
+    foaf:name "Alice";
     a foaf:Person.

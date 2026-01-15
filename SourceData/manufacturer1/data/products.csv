@@ -1,0 +1,10 @@
+productId,label,category,volume,percentageBenzene,percentageRecycled,originCountry,reachCompliant,recycledScore
+P101,Benzofix,Industrial Adhesive,750,1.6394,5.3752,Germany,No,F
+P102,StickTite,Industrial Adhesive,2500,1.275,8.3482,Germany,No,F
+P103,ResinLock,Industrial Adhesive,1000,1.7365,15.1505,Germany,No,F
+P104,CoatBond,Concrete Primer,1000,0.7461,8.6086,South Korea,Yes,F
+P105,PrimeFix,Concrete Primer,350,0.511,8.2086,South Korea,Yes,F
+P106,DeepSeal,Concrete Primer,500,0.4093,11.5375,South Korea,Yes,F
+P107,EpoxyFix,Structural Epoxy,300,0.1053,17.5675,France,Yes,F
+P108,TitanBond,Structural Epoxy,1200,0.23,27.2584,France,Yes,A
+P109,UltraSeal,Structural Epoxy,250,0.1441,28.4994,France,Yes,A
